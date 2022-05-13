@@ -1,13 +1,19 @@
-import React from 'react';
+import { useState } from 'react';
 import iconLogin from '../../assets/iconLogin';
 import { useForm } from 'react-hook-form';
 
 function LoginValid() {
+  const [eye, setEye] = useState(false);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  function toggleEye() {
+    setEye((prevState) => !prevState);
+  }
 
   function loginSubmit(data, e) {
     console.log(data);
@@ -49,7 +55,7 @@ function LoginValid() {
           </span>
           <input
             autoComplete='off'
-            type='password'
+            type={eye ? 'text' : 'password'}
             {...register('password')}
             className={`input-primary ${errors.password && 'input-danger'}`}
             {...register('password', {
@@ -66,8 +72,14 @@ function LoginValid() {
           {errors.password && (
             <span className='span-alert'>{errors.password.message}</span>
           )}
-          <button type='submit' className='absolute right-0 top-0 mt-3 mr-4'>
-            <img src={iconLogin.eye1} alt='' />
+          <button
+            onClick={toggleEye}
+            className='absolute right-0 top-0 mt-3 mr-4'>
+            {eye ? (
+              <img src={iconLogin.eye2} alt='ojo cerrado' />
+            ) : (
+              <img src={iconLogin.eye1} alt='ojo abierto' />
+            )}
           </button>
         </div>
         <div className='ml-0'>
@@ -75,18 +87,20 @@ function LoginValid() {
             <div>
               <input type='checkbox' className='relative -top-0.5' />
             </div>
-            <div className='ml-2 text-sm text-textblack'>
+            <div className='ml-2 text-sm text-textblack cursor-pointer'>
               Permanecer conectado
             </div>
           </label>
         </div>
         <div className='w-full flex justify-center mt-5'>
-          <a className='text-sm text-primary'>¿Has olvidado la contraseña?</a>
+          <a className='text-sm text-primary cursor-pointer'>
+            ¿Has olvidado la contraseña?
+          </a>
         </div>
         <div className='w-full flex justify-center  mt-5'>
           <button
             type='submit'
-            className='bg-primary w-5/6 p-3 rounded-lg text-textwhite text-sm'>
+            className='bg-primary w-5/6 p-3 rounded-lg text-textwhite text-sm cursor-pointer'>
             Iniciar Sesión
           </button>
         </div>
