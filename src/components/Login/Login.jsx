@@ -1,5 +1,6 @@
 import React from 'react';
-import iconLogin from '../../assets/iconLogin.js';
+
+import LoginValid from './LoginValid.jsx';
 
 function Login() {
   return (
@@ -42,51 +43,7 @@ function Login() {
         <div className='p-3 mt-5 w-full'>
           <h1 className='text-xl font-bold'>Iniciar Sesión</h1>
         </div>
-        <form action='/' method='/' className='mt-1 p-3 w-full relative '>
-          <label className='label-primary'>Correo Electrónico</label>
-          <div className='container-input'>
-            <span className='span-image'>
-              <img src={iconLogin.mail1} alt='' />
-            </span>
-            <input type='email' className='input-primary' />
-          </div>
-          <label className='label-primary'>Password</label>
-          <div className='container-input'>
-            <span className='span-image'>
-              <img src={iconLogin.lock1} alt='' />
-            </span>
-            <input type='email' className='input-primary' />
-            <button type='submit' className='absolute right-0 top-0 mt-3 mr-4'>
-              <img src={iconLogin.eye1} alt='' />
-            </button>
-          </div>
-        </form>
-        <div className='ml-4'>
-          <label className='flex'>
-            <div>
-              <input type='checkbox' className='relative -top-0.5' />
-            </div>
-            <div className='ml-2 text-sm text-textblack'>
-              Permanecer conectado
-            </div>
-          </label>
-        </div>
-        <div className='w-full flex justify-center mt-5'>
-          <a className='text-sm text-primary'>¿Has olvidado la contraseña?</a>
-        </div>
-        <div className='w-full flex justify-center  mt-5'>
-          <button className='bg-primary w-5/6 p-3 rounded-lg text-textwhite text-sm'>
-            Iniciar Sesión
-          </button>
-        </div>
-        <div className='mt-5 flex justify-center text-xs'>
-          <p className='text-textblack'>
-            ¿Necesitas una cuenta?{' '}
-            <a className='text-primary' href=''>
-              Registrarse
-            </a>
-          </p>
-        </div>
+        <LoginValid />
       </main>
     </>
   );

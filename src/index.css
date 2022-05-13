@@ -10,11 +10,19 @@
     .container-input {
         @apply relative flex w-full flex-wrap items-stretch mt-2 mb-3
       }
-
+    
     .span-image{
         @apply z-10 h-full text-textblack absolute items-center justify-center w-9 pl-3 py-3
     }
 
     .input-primary{
         @apply px-3 py-3 pl-10 w-full relative rounded-lg text-sm border border-gray outline-none focus:outline-none focus:border-primary
+    }
+
+    .input-danger{
+        @apply  border-red
+    }
+
+    .span-alert{
+        @apply text-xs text-textdanger mt-1
     }

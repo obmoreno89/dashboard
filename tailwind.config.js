@@ -28,6 +28,7 @@ module.exports = {
       terciary: '#D8F6F0',
       white: '#ffff',
       gray: '#BBC0C9',
+      red: '#FF5859',
     },
     textColor: {
       primary: '#0DB1AC',
