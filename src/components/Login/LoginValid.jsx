@@ -21,15 +21,29 @@ function LoginValid() {
     e.target.reset();
   }
 
+  const restApiUser = async (data) => {
+    const api = await fetch('http://dev.hubmine.mx/api/auth/login/', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch((error) => console.log('Authorization failed : ' + error.message));
+    console.log(api);
+  };
+
   return (
     <>
       <form
-        onSubmit={handleSubmit(loginSubmit)}
+        onSubmit={handleSubmit(restApiUser)}
         className='mt-1 p-3 w-96 relative '>
         <label className='label-primary'>Correo Electrónico</label>
         <div className='container-input'>
           <span className='span-image'>
-            <img src={iconLogin.mail1} alt='' />
+            <img src={iconLogin.mail1} alt='mail' />
           </span>
           <input
             autoComplete='off'
@@ -74,15 +88,13 @@ function LoginValid() {
           {errors.password && (
             <span className='span-alert'>{errors.password.message}</span>
           )}
-          <button
-            onClick={toggleEye}
-            className='absolute right-0 top-0 mt-3 mr-4'>
+          <a onClick={toggleEye} className='absolute right-0 top-0 mt-3 mr-4'>
             {eye ? (
               <img src={iconLogin.eye2} alt='ojo cerrado' />
             ) : (
               <img src={iconLogin.eye1} alt='ojo abierto' />
             )}
-          </button>
+          </a>
         </div>
         <div className='ml-0'>
           <label className='flex'>
@@ -107,6 +119,7 @@ function LoginValid() {
           </button>
         </div>
       </form>
+      {<span>no puedes esntrar</span>}
       <div className='mt-5 flex justify-center text-xs'>
         <p className='text-textblack'>
           ¿Necesitas una cuenta?
