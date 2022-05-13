@@ -17,7 +17,7 @@ function LoginValid() {
     <>
       <form
         onSubmit={handleSubmit(loginSubmit)}
-        className='mt-1 p-3 w-full relative '>
+        className='mt-1 p-3 w-96 relative '>
         <label className='label-primary'>Correo Electrónico</label>
         <div className='container-input'>
           <span className='span-image'>

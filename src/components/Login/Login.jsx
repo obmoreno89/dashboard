@@ -39,9 +39,9 @@ function Login() {
           </h1>
         </div>
       </nav>
-      <main className='h-auto'>
-        <div className='p-3 mt-5 w-full'>
-          <h1 className='text-xl font-bold'>Iniciar Sesión</h1>
+      <main className='h-full flex flex-col items-center justify-center'>
+        <div className='mt-10 '>
+          <h1 className='text-2xl font-bold'>Iniciar Sesión</h1>
         </div>
         <LoginValid />
       </main>
