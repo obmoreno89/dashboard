@@ -6,11 +6,11 @@ import LoginValid from './LoginValid.jsx';
 function Login() {
   return (
     <>
-      <nav className='w-full h-15 border-b-2 border-gray'>
-        <div className='p-3 flex flex-row items-center space-x-3'>
+      <nav className='nav'>
+        <div className='nav-container'>
           <img className='w-10' src={logo.logo} alt='logo hubmine' />
-          <h1 className='w-0 font-bold text-2xl'>
-            Hub<span className='text-primary'>mine</span>
+          <h1 className='title-hub'>
+            Hub<span className='span-mine'>mine</span>
           </h1>
         </div>
       </nav>

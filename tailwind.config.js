@@ -20,6 +20,7 @@ module.exports = {
       secondary: '#D8F6F0',
       terciary: '#D8F6F0',
       white: '#ffff',
+      purple: '#7e5bef',
     },
 
     borderColor: {

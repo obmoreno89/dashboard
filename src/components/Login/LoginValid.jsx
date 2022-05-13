@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import iconLogin from '../../assets/iconLogin';
 import { useForm } from 'react-hook-form';
+import { NavLink } from 'react-router-dom';
 
 function LoginValid() {
   const [eye, setEye] = useState(false);
@@ -19,6 +20,7 @@ function LoginValid() {
     console.log(data);
     e.target.reset();
   }
+
   return (
     <>
       <form
@@ -93,14 +95,14 @@ function LoginValid() {
           </label>
         </div>
         <div className='w-full flex justify-center mt-5'>
-          <a className='text-sm text-primary cursor-pointer'>
+          <NavLink
+            className='text-sm text-primary cursor-pointer'
+            to='recuperate'>
             ¿Has olvidado la contraseña?
-          </a>
+          </NavLink>
         </div>
         <div className='w-full flex justify-center  mt-5'>
-          <button
-            type='submit'
-            className='bg-primary w-5/6 p-3 rounded-lg text-textwhite text-sm cursor-pointer'>
+          <button type='submit' className='button-primary'>
             Iniciar Sesión
           </button>
         </div>
@@ -108,9 +110,9 @@ function LoginValid() {
       <div className='mt-5 flex justify-center text-xs'>
         <p className='text-textblack'>
           ¿Necesitas una cuenta?
-          <a className='text-primary ml-2' href=''>
+          <NavLink className='text-primary ml-2' to='/'>
             Registrarse
-          </a>
+          </NavLink>
         </p>
       </div>
     </>

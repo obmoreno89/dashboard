@@ -2,10 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+
+    .nav{
+        @apply w-full h-16 border-b-2 border-gray
+    }
+
+    .nav-container{
+       @apply p-3 flex flex-row items-center space-x-3
+    }
+
+    .title-hub{
+        @apply w-0 font-bold text-2xl
+    }
+
+    .span-mine{
+        @apply text-primary
+    }
+
     .label-primary{
         @apply text-sm text-textblack;
     }
-
 
     .container-input {
         @apply relative flex w-full flex-wrap items-stretch mt-2 mb-3
@@ -25,4 +41,8 @@
 
     .span-alert{
         @apply text-xs text-textdanger mt-1
+    }
+
+    .button-primary{
+        @apply bg-primary w-5/6 p-3 rounded-lg text-textwhite text-sm cursor-pointer
     }
