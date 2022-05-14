@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import iconLogin from '../../assets/iconLogin';
 import { useForm } from 'react-hook-form';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import Dashboard from '../Dashboard/Dashboard';
 
 function LoginValid() {
   const [eye, setEye] = useState(false);
@@ -9,19 +11,26 @@ function LoginValid() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
+
+  function alerLogin() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Credenciales invalidas',
+    });
+  }
 
   function toggleEye() {
     setEye((prevState) => !prevState);
   }
 
-  function loginSubmit(data, e) {
-    console.log(data);
-    e.target.reset();
-  }
+  const onSubmit = (data) => console.log(data);
 
-  const restApiUser = async (data) => {
+  const restApiUser = async (data, e) => {
+    e.preventDefault();
     const api = await fetch('http://dev.hubmine.mx/api/auth/login/', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -30,8 +39,15 @@ function LoginValid() {
       },
     })
       .then((response) => response.json())
-      .then((json) => console.log(json))
-      .catch((error) => console.log('Authorization failed : ' + error.message));
+      .then((json) => {
+        // reset();
+        console.log('response', json);
+        if (json.code === 200) {
+          console.log(json.token);
+        } else {
+          alerLogin();
+        }
+      });
     console.log(api);
   };
 
@@ -119,7 +135,7 @@ function LoginValid() {
           </button>
         </div>
       </form>
-      {<span>no puedes esntrar</span>}
+
       <div className='mt-5 flex justify-center text-xs'>
         <p className='text-textblack'>
           ¿Necesitas una cuenta?
