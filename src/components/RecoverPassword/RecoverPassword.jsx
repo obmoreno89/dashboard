@@ -1,11 +1,31 @@
 import React from 'react';
+import { useState } from 'react';
 import logo from '../../assets/logo';
 import iconLogin from '../../assets/iconLogin';
 import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-function RecoverPassword() {
+async function passwordRecover(recovery) {
+  return fetch('http://awsms.syncronik.com/password_reset/confirm/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    mode: 'no-cors',
+    body: JSON.stringify(recovery),
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      // reset();
+      console.log('response', json);
+      if (!json.code === 200) {
+        console.log('hola');
+      }
+    });
+}
+
+function RecoverPassword({ setToken }) {
   const navigate = useNavigate();
+  const [recoveryMail, setRecoveryMail] = useState();
 
   const {
     register,
@@ -21,6 +41,13 @@ function RecoverPassword() {
   function handleRecovery() {
     navigate('/mailsent');
   }
+
+  const handleRecover = async () => {
+    const token = await passwordRecover({
+      recoveryMail,
+    });
+    setToken(token);
+  };
 
   return (
     <>
@@ -38,7 +65,7 @@ function RecoverPassword() {
         </div>
         <section className='w-full h-64 flex justify-center'>
           <form
-            onSubmit={handleSubmit(recoverSubmit)}
+            onSubmit={handleSubmit(passwordRecover)}
             className='w-96 h-64 mt-5 text-center text-textblack text-sm'>
             <label>Ingresa tu correo electrónico o número de celular</label>
             <div className='container-input'>
@@ -47,6 +74,7 @@ function RecoverPassword() {
               </span>
               <input
                 autoComplete='off'
+                onChange={(e) => setRecoveryMail(e.target.value)}
                 type='email'
                 className={`input-primary ${errors.email && 'input-danger'}`}
                 {...register('email', {
@@ -83,5 +111,9 @@ function RecoverPassword() {
     </>
   );
 }
+
+RecoverPassword.propTypes = {
+  setToken: PropTypes.func.isRequired,
+};
 
 export default RecoverPassword;
