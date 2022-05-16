@@ -7,16 +7,16 @@ import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className='App'>
+    <div className='App'>
+      <BrowserRouter>
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/dash' element={<Dashboard />} />
           <Route path='/recuperate' element={<RecoverPassword />} />
           <Route path='/mailsent' element={<EmailSent />} />
         </Routes>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </div>
   );
 }
 
