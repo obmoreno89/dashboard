@@ -56,7 +56,7 @@ function Login({}) {
         if (json.code === 401) {
           alertLogin();
         } else {
-          navigate('/dashboard');
+          navigate('/dash');
         }
       });
   }

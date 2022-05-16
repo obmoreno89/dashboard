@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <div className='App'>
         <Routes>
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dash' element={<Dashboard />} />
           <Route path='/' element={<Login />} />
           <Route path='/recuperate' element={<RecoverPassword />} />
           <Route path='/mailsent' element={<EmailSent />} />
