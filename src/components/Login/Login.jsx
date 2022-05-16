@@ -5,38 +5,12 @@ import iconLogin from '../../assets/iconLogin';
 import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import PropTypes from 'prop-types';
 
-function alertLogin() {
-  Swal.fire({
-    icon: 'error',
-    title: 'Oops...',
-    text: 'Credenciales invalidas',
-  });
-}
-
-async function loginUser(credentials) {
-  return fetch('http://dev.hubmine.mx/api/auth/login/', {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-    body: JSON.stringify(credentials),
-  })
-    .then((response) => response.json())
-    .then((json) => {
-      // reset();
-      console.log('response', json);
-      if (!json.code === 200) {
-        alertLogin();
-      }
-    });
-}
-
-function Login({ setToken }) {
+function Login({}) {
   const [eye, setEye] = useState(false);
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  // const [email, setEmail] = useState();
+  // const [password, setPassword] = useState();
+  let navigate = useNavigate();
 
   const {
     register,
@@ -51,13 +25,41 @@ function Login({ setToken }) {
 
   // 'http://dev.hubmine.mx/api/auth/login/'
 
-  const handleLogin = async () => {
-    const token = await loginUser({
-      email,
-      password,
+  // const handleLogin = async () => {
+  //   const token = await loginUser({
+  //     email,
+  //     password,
+  //   });
+  //   setToken(token);
+  // };
+
+  function alertLogin() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Credenciales invalidas',
     });
-    setToken(token);
-  };
+  }
+
+  async function loginUser(credentials) {
+    return fetch('http://dev.hubmine.mx/api/auth/login/', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify(credentials),
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        // reset();
+        console.log('response', json);
+        if (json.code === 401) {
+          alertLogin();
+        } else {
+          navigate('/dashboard');
+        }
+      });
+  }
 
   return (
     <>
@@ -74,7 +76,7 @@ function Login({ setToken }) {
           <h1 className='text-2xl font-bold'>Iniciar Sesión</h1>
         </div>
         <form
-          onSubmit={handleSubmit(handleLogin)}
+          onSubmit={handleSubmit(loginUser)}
           className='mt-1 p-3 w-96 relative '>
           <label className='label-primary'>Correo Electrónico</label>
           <div className='container-input'>
@@ -82,7 +84,7 @@ function Login({ setToken }) {
               <img src={iconLogin.mail1} alt='mail' />
             </span>
             <input
-              onChange={(e) => setEmail(e.target.value)}
+              // onChange={(e) => setEmail(e.target.value)}
               autoComplete='off'
               type='email'
               className={`input-primary ${errors.email && 'input-danger'}`}
@@ -107,7 +109,7 @@ function Login({ setToken }) {
               <img src={iconLogin.lock1} alt='' />
             </span>
             <input
-              onChange={(e) => setPassword(e.target.value)}
+              // onChange={(e) => setPassword(e.target.value)}
               autoComplete='off'
               type={eye ? 'text' : 'password'}
               {...register('password')}
@@ -170,9 +172,5 @@ function Login({ setToken }) {
     </>
   );
 }
-
-Login.propTypes = {
-  setToken: PropTypes.func.isRequired,
-};
 
 export default Login;

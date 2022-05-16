@@ -7,17 +7,12 @@ import Dashboard from './components/Dashboard/Dashboard';
 import { useState } from 'react';
 
 function App() {
-  const [token, setToken] = useState();
-
   return (
     <BrowserRouter>
       <div className='App'>
         <Routes>
-          {token ? (
-            <Route path='/mailsent' element={<Dashboard />} />
-          ) : (
-            <Route path='/' element={<Login setToken={setToken} />} />
-          )}
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/' element={<Login />} />
           <Route path='/recuperate' element={<RecoverPassword />} />
           <Route path='/mailsent' element={<EmailSent />} />
         </Routes>
