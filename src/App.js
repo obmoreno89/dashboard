@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RecoverPassword from './components/RecoverPassword/RecoverPassword';
 import EmailSent from './components/RecoverPassword/EmailSent';
 import Dashboard from './components/Dashboard/Dashboard';
+// Pages
+import NewSupplier from './pages/NewSupplier/NewSupplier.jsx';
 
 function App() {
   return (
@@ -12,7 +14,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Login />} />
-            <Route path='/dash' element={<Dashboard />} />
+            <Route path='dash' element={<Dashboard />} />
+            <Route path='newsupplier' element={<NewSupplier />} />
             <Route path='/recuperate' element={<RecoverPassword />} />
             <Route path='/mailsent' element={<EmailSent />} />
           </Routes>

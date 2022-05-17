@@ -3,8 +3,14 @@ import logo from '../../assets/logo';
 import iconDash from '../../assets/iconDash';
 import LateralMenu from './LateralMenu';
 import ListSupplier from './ListSupplier';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 function Dashboard() {
+  const navigate = useNavigate();
+
+  function newSupplier() {
+    navigate('/newsupplier');
+  }
   return (
     <>
       <nav className='nav flex items-center justify-around'>
@@ -29,13 +35,15 @@ function Dashboard() {
           />
         </div>
         <div>
-          <button className='bg-primary w-24 p-3 rounded-lg text-textwhite text-sm cursor-pointer'>
+          <button
+            onClick={newSupplier}
+            className='bg-primary w-24 p-3 rounded-lg text-textwhite text-sm cursor-pointer'>
             Añadir
           </button>
         </div>
         <div className='flex items-center space-x-3'>
           <h1>Omar Barragán</h1>
-          <button className='w-10 h-10 rounded-full bg-primary text-textwhite cursor-pointer'>
+          <button className='w-10 h-10 rounded-full bg-primary text-textwhite cursor-pointer '>
             OB
           </button>
         </div>
@@ -44,7 +52,7 @@ function Dashboard() {
         <section className='w-60 h-auto border-r-2 border-gray'>
           <LateralMenu />
         </section>
-        <section className='w-full h-auto bg-purple'>
+        <section className='w-full h-auto'>
           <ListSupplier />
         </section>
       </main>

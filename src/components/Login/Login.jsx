@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-function Login({}) {
+function Login() {
   const [eye, setEye] = useState(false);
   let navigate = useNavigate();
 

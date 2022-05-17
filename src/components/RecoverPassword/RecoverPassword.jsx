@@ -23,23 +23,23 @@ function RecoverPassword() {
     });
   }
 
-  async function passwordRecover(email) {
-    return fetch('http://dev.hubmine.mx/api/password_reset/confirm/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(email),
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        // reset();
-        console.log('response', json);
-        if (json.code === 200) {
-          navigate('/mailsent');
-        } else {
-          alertRecover();
-        }
-      });
-  }
+  // async function passwordRecover(email) {
+  //   return fetch('http://dev.hubmine.mx/api/password_reset/confirm/', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify(email),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       // reset();
+  //       console.log('response', json);
+  //       if (json.code === 200) {
+  //         navigate('/mailsent');
+  //       } else {
+  //         alertRecover();
+  //       }
+  //     });
+  // }
 
   return (
     <>
@@ -57,7 +57,7 @@ function RecoverPassword() {
         </div>
         <section className='w-full h-64 flex justify-center'>
           <form
-            onSubmit={handleSubmit(passwordRecover)}
+            // onSubmit={handleSubmit(passwordRecover)}
             className='w-96 h-64 mt-5 text-center text-textblack text-sm'>
             <label>Ingresa tu correo electrónico</label>
             <div className='container-input'>
