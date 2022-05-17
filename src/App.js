@@ -7,16 +7,18 @@ import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (
-    <div className='App'>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/dash' element={<Dashboard />} />
-          <Route path='/recuperate' element={<RecoverPassword />} />
-          <Route path='/mailsent' element={<EmailSent />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <>
+      <div className='App'>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Login />} />
+            <Route path='/dash' element={<Dashboard />} />
+            <Route path='/recuperate' element={<RecoverPassword />} />
+            <Route path='/mailsent' element={<EmailSent />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </>
   );
 }
 

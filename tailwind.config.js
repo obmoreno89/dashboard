@@ -38,6 +38,7 @@ module.exports = {
       textblack: '#494F5B',
       textdanger: '#FF5859',
       textwhite: '#ffff',
+      textgray: '#8B8A8A',
     },
     fontFamily: {
       Inter: ['Inter', 'sans-serif'],

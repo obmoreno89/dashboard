@@ -13,7 +13,7 @@ function EmailSent() {
     <>
       <nav className='nav'>
         <div className='nav-container'>
-          <img className='w-10' src={logo.logo} alt='logo hubmine' />
+          <img className='logo' src={logo.logo} alt='logo hubmine' />
           <h1 className='title-hub'>
             Hub<span className='span-mine'>mine</span>
           </h1>

@@ -8,8 +8,6 @@ import Swal from 'sweetalert2';
 
 function Login({}) {
   const [eye, setEye] = useState(false);
-  // const [email, setEmail] = useState();
-  // const [password, setPassword] = useState();
   let navigate = useNavigate();
 
   const {
@@ -23,16 +21,6 @@ function Login({}) {
     setEye((prevState) => !prevState);
   }
 
-  // 'http://dev.hubmine.mx/api/auth/login/'
-
-  // const handleLogin = async () => {
-  //   const token = await loginUser({
-  //     email,
-  //     password,
-  //   });
-  //   setToken(token);
-  // };
-
   function alertLogin() {
     Swal.fire({
       icon: 'error',
@@ -42,7 +30,7 @@ function Login({}) {
   }
 
   async function loginUser(credentials) {
-    return fetch('http://dev.hubmine.mx/api/auth/login/', {
+    fetch('http://dev.hubmine.mx/api/auth/login/', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -52,7 +40,6 @@ function Login({}) {
       .then((response) => response.json())
       .then((json) => {
         // reset();
-        console.log('response', json);
         if (json.code === 401) {
           alertLogin();
         } else {
@@ -65,7 +52,7 @@ function Login({}) {
     <>
       <nav className='nav'>
         <div className='nav-container'>
-          <img className='w-10' src={logo.logo} alt='logo hubmine' />
+          <img className='w-12' src={logo.logo} alt='logo hubmine' />
           <h1 className='title-hub'>
             Hub<span className='span-mine'>mine</span>
           </h1>
@@ -84,7 +71,6 @@ function Login({}) {
               <img src={iconLogin.mail1} alt='mail' />
             </span>
             <input
-              // onChange={(e) => setEmail(e.target.value)}
               autoComplete='off'
               type='email'
               className={`input-primary ${errors.email && 'input-danger'}`}
@@ -109,7 +95,6 @@ function Login({}) {
               <img src={iconLogin.lock1} alt='' />
             </span>
             <input
-              // onChange={(e) => setPassword(e.target.value)}
               autoComplete='off'
               type={eye ? 'text' : 'password'}
               {...register('password')}

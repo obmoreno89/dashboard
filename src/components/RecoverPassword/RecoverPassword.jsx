@@ -19,15 +19,14 @@ function RecoverPassword() {
     Swal.fire({
       icon: 'error',
       title: 'Correo invalido',
-      text: 'Por favor, inserta un mail valido',
+      text: 'Por favor, inserta un correo electrónico valido',
     });
   }
 
   async function passwordRecover(email) {
-    return fetch('http://dev.hubmine.com/password_reset/confirm/', {
+    return fetch('http://dev.hubmine.mx/api/password_reset/confirm/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      mode: 'no-cors',
       body: JSON.stringify(email),
     })
       .then((response) => response.json())
@@ -46,7 +45,7 @@ function RecoverPassword() {
     <>
       <nav className='nav'>
         <div className='nav-container'>
-          <img className='w-10' src={logo.logo} alt='logo hubmine' />
+          <img className='logo' src={logo.logo} alt='logo hubmine' />
           <h1 className='title-hub'>
             Hub<span className='span-mine'>mine</span>
           </h1>
