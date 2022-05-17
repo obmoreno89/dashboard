@@ -30,7 +30,7 @@ function Login({}) {
   }
 
   async function loginUser(credentials) {
-    fetch('http://dev.hubmine.mx/api/auth/login/', {
+    fetch('https://dev.hubmine.mx/api/auth/login/', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',

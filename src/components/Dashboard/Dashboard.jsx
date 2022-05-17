@@ -1,12 +1,14 @@
 import React from 'react';
 import logo from '../../assets/logo';
 import iconDash from '../../assets/iconDash';
+import LateralMenu from './LateralMenu';
+import ListSupplier from './ListSupplier';
 
 function Dashboard() {
   return (
     <>
       <nav className='nav flex items-center justify-around'>
-        <div className='nav-container'>
+        <div className='flex items-center space-x-3'>
           <img className='logo' src={logo.logo} alt='logo hubmine' />
           <div>
             <h1 className='title-hub'>
@@ -39,8 +41,12 @@ function Dashboard() {
         </div>
       </nav>
       <main className='w-full h-96 flex'>
-        <section className='w-60 h-auto bg-secondary border-r-2 border-gray'></section>
-        <section className='w-full h-auto bg-purple'></section>
+        <section className='w-60 h-auto border-r-2 border-gray'>
+          <LateralMenu />
+        </section>
+        <section className='w-full h-auto bg-purple'>
+          <ListSupplier />
+        </section>
       </main>
     </>
   );

@@ -26,9 +26,8 @@ module.exports = {
     borderColor: {
       primary: '#0DB1AC',
       secondary: '#D8F6F0',
-      terciary: '#D8F6F0',
       white: '#ffff',
-      gray: '#BBC0C9',
+      gray: '#eaebed',
       red: '#FF5859',
     },
     textColor: {
@@ -39,6 +38,7 @@ module.exports = {
       textdanger: '#FF5859',
       textwhite: '#ffff',
       textgray: '#8B8A8A',
+      textgray1: '#6D7688',
     },
     fontFamily: {
       Inter: ['Inter', 'sans-serif'],
