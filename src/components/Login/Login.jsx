@@ -36,8 +36,8 @@ function Login({}) {
   function alertLogin() {
     Swal.fire({
       icon: 'error',
-      title: 'Oops...',
-      text: 'Credenciales invalidas',
+      title: 'Credenciales invalidas',
+      text: 'Verifica tu correo electrónico o contraseña',
     });
   }
 

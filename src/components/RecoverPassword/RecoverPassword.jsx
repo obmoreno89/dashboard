@@ -4,28 +4,10 @@ import logo from '../../assets/logo';
 import iconLogin from '../../assets/iconLogin';
 import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import Swal from 'sweetalert2';
 
-async function passwordRecover(recovery) {
-  return fetch('http://awsms.syncronik.com/password_reset/confirm/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    mode: 'no-cors',
-    body: JSON.stringify(recovery),
-  })
-    .then((response) => response.json())
-    .then((json) => {
-      // reset();
-      console.log('response', json);
-      if (!json.code === 200) {
-        console.log('hola');
-      }
-    });
-}
-
-function RecoverPassword({ setToken }) {
-  const navigate = useNavigate();
-  const [recoveryMail, setRecoveryMail] = useState();
+function RecoverPassword() {
+  const navigate = useNavigate('/mailsent');
 
   const {
     register,
@@ -33,21 +15,32 @@ function RecoverPassword({ setToken }) {
     formState: { errors },
   } = useForm();
 
-  function recoverSubmit(data, e) {
-    console.log(data);
-    e.target.reset();
-  }
-
-  function handleRecovery() {
-    navigate('/mailsent');
-  }
-
-  const handleRecover = async () => {
-    const token = await passwordRecover({
-      recoveryMail,
+  function alertRecover() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Correo invalido',
+      text: 'Por favor, inserta un mail valido',
     });
-    setToken(token);
-  };
+  }
+
+  async function passwordRecover(email) {
+    return fetch('http://dev.hubmine.com/password_reset/confirm/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      body: JSON.stringify(email),
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        // reset();
+        console.log('response', json);
+        if (json.code === 200) {
+          navigate('/mailsent');
+        } else {
+          alertRecover();
+        }
+      });
+  }
 
   return (
     <>
@@ -67,14 +60,13 @@ function RecoverPassword({ setToken }) {
           <form
             onSubmit={handleSubmit(passwordRecover)}
             className='w-96 h-64 mt-5 text-center text-textblack text-sm'>
-            <label>Ingresa tu correo electrónico o número de celular</label>
+            <label>Ingresa tu correo electrónico</label>
             <div className='container-input'>
               <span className='span-image'>
                 <img src={iconLogin.mail1} alt='' />
               </span>
               <input
                 autoComplete='off'
-                onChange={(e) => setRecoveryMail(e.target.value)}
                 type='email'
                 className={`input-primary ${errors.email && 'input-danger'}`}
                 {...register('email', {
@@ -94,7 +86,6 @@ function RecoverPassword({ setToken }) {
             </div>
             <div className='w-full flex justify-center  mt-5'>
               <button
-                onClick={handleRecovery}
                 type='submit'
                 className='bg-primary w-full p-3 rounded-lg text-textwhite text-sm cursor-pointer'>
                 Restablecer la contraseña
@@ -111,9 +102,5 @@ function RecoverPassword({ setToken }) {
     </>
   );
 }
-
-RecoverPassword.propTypes = {
-  setToken: PropTypes.func.isRequired,
-};
 
 export default RecoverPassword;
