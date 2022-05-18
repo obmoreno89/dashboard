@@ -48,7 +48,7 @@ function Dashboard() {
           </button>
         </div>
       </nav>
-      <main className='w-full h-96 flex'>
+      <main className='w-full h-full flex'>
         <section className='w-60 h-auto border-r-2 border-gray'>
           <LateralMenu />
         </section>

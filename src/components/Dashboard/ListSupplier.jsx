@@ -20,14 +20,14 @@ function ListSupplier() {
         <tbody>
           <tr
             onClick={hola}
-            className=' w-full h-10 border-y-2 border-gray text-center cursor-pointer text-textblack hover:bg-secondary'>
+            className=' w-full h-10 border-y-2 border-gray1 text-center cursor-pointer text-textblack hover:bg-secondary'>
             <td>00000002</td>
             <td>Pedrera San Angel</td>
             <td>81X9XX4X05</td>
             <td>México</td>
             <td>Nuevo León</td>
           </tr>
-          <tr className=' w-full h-10 border-y-2 border-gray text-center cursor-pointer text-textblack hover:bg-secondary'>
+          <tr className=' w-full h-10 border-y-2 border-gray1 text-center cursor-pointer text-textblack hover:bg-secondary'>
             <td className=''>00000002</td>
             <td>Pedrera San Angel</td>
             <td>81X9XX4X05</td>
