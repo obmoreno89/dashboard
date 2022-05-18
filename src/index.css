@@ -26,6 +26,10 @@
         @apply text-sm text-textblack;
     }
 
+    .label-required{
+        @apply text-sm text-textblack outline-none after:content-['*'] after:ml-0.5 after:text-textdanger
+    }
+
     .container-input {
         @apply relative flex w-full flex-wrap items-stretch mt-2 mb-3
       }
@@ -52,4 +56,8 @@
 
     .text-header{
         @apply text-textgray font-light
+    }
+
+    .button-secondary{
+        @apply w-32 p-3 rounded-lg text-textwhite text-sm cursor-pointer
     }

@@ -14,8 +14,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Login />} />
-            <Route path='dash' element={<Dashboard />} />
-            <Route path='newsupplier' element={<NewSupplier />} />
+            <Route path='/dash' element={<Dashboard />} />
+            <Route path='/newsupplier' element={<NewSupplier />} />
             <Route path='/recuperate' element={<RecoverPassword />} />
             <Route path='/mailsent' element={<EmailSent />} />
           </Routes>

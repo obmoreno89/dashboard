@@ -31,9 +31,10 @@ function Login() {
 
   async function loginUser(credentials) {
     fetch('https://dev.hubmine.mx/api/auth/login/', {
+      mode: 'cors',
       method: 'POST',
       headers: {
-        'Content-type': 'application/json; charset=UTF-8',
+        'Content-type': 'application/json; Access-Control-Allow-Origin: *',
       },
       body: JSON.stringify(credentials),
     })
