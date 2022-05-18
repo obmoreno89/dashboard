@@ -1,4 +1,3 @@
-import React from 'react';
 import logo from '../../assets/logo';
 import LateralMenu from '../../components/Dashboard/LateralMenu';
 import FormNewSupplier from './FormNewSupplier';
@@ -27,6 +26,28 @@ function NewSupplier() {
     });
   }
 
+  function saveSupplier() {
+    Swal.fire({
+      imageUrl: iconDash.warning,
+      imageHeight: 100,
+      imageWidth: 100,
+      text: '¿Esta seguro que desea guardar el proveedor?',
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: '#0DB1AC',
+      cancelButtonText: 'Cancelar',
+      cancelButtonColor: '#FF5859',
+      showCancelButton: true,
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Operación exitosa!',
+          'Se guardo correctamente el proveedor',
+          'success'
+        );
+      }
+    });
+  }
+
   return (
     <>
       <nav className='nav flex items-center justify-between p-6'>
@@ -45,7 +66,11 @@ function NewSupplier() {
           </h2>
         </div>
         <div className='w-96 flex flex-row space-x-3 items-center justify-center'>
-          <button className='button-secondary bg-secondary'>guardar</button>
+          <button
+            onClick={saveSupplier}
+            className='button-secondary bg-primary'>
+            guardar
+          </button>
           <button
             onClick={buttonQuestion}
             className='button-secondary bg-danger'>
