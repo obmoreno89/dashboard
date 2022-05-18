@@ -2,7 +2,9 @@ module.exports = {
   content: ['./src/**/*.{html,jsx}'],
   theme: {
     extend: {
-      backgroundImage: {},
+      colors: {
+        primary: '#0DB1AC',
+      },
     },
 
     colors: {
@@ -28,7 +30,7 @@ module.exports = {
       primary: '#0DB1AC',
       secondary: '#D8F6F0',
       white: '#ffff',
-      gray: '#eaebed',
+      gray: '#d5d6d8',
       red: '#FF5859',
     },
     textColor: {
