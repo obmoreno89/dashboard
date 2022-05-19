@@ -71,7 +71,7 @@ function NewSupplier() {
           <button
             onClick={saveSupplier}
             className='button-secondary bg-primary'>
-            guardar
+            Guardar
           </button>
           <button
             onClick={buttonQuestion}
