@@ -1,16 +1,47 @@
-import React, { useState } from 'react';
 import logo from '../../assets/logo';
 import iconDash from '../../assets/iconDash';
-import LateralMenu from './LateralMenu';
+import trashCan from '../../assets/iconDash';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import React, { useState } from 'react';
+import LateralMenu from './LateralMenu';
 
 function Dashboard() {
   const navigate = useNavigate();
-  const [hiddenButton, setHiddenButton] = useState(false);
+  const [hiddenButton, setHiddenButton] = useState(true);
 
   function newSupplier() {
     navigate('/newsupplier');
   }
+
+  function showButton() {
+    navigate('/supplieredit');
+  }
+
+  function supplierDelete() {
+    Swal.fire({
+      imageUrl: iconDash.warning,
+      imageHeight: 100,
+      imageWidth: 100,
+      text: '¿Esta seguro que desea eliminar este registro?',
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: '#0DB1AC',
+      cancelButtonText: 'Cancelar',
+      cancelButtonColor: '#FF5859',
+      showCancelButton: true,
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Operación exitosa!',
+          'Se guardo correctamente el proveedor',
+          'success'
+        );
+        console.log('hola');
+        // navigate('/dash');
+      }
+    });
+  }
+
   return (
     <>
       <nav className='nav flex items-center justify-around'>
@@ -42,7 +73,22 @@ function Dashboard() {
               Añadir
             </button>
           </div>
-        ) : null}
+        ) : (
+          <section className='flex space-x-3'>
+            <div>
+              <button
+                onClick={showButton}
+                className='bg-primary w-24 p-3 rounded-lg text-textwhite text-sm cursor-pointer'>
+                Ver
+              </button>
+            </div>
+            <div>
+              <button className='button-trash' onClick={supplierDelete}>
+                <img src={trashCan.trashCan} alt='bote de basura' />
+              </button>
+            </div>
+          </section>
+        )}
         <div className='flex items-center space-x-3'>
           <h1>Omar Barragán</h1>
           <button className='w-10 h-10 rounded-full bg-primary text-textwhite cursor-pointer '>

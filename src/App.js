@@ -6,6 +6,7 @@ import EmailSent from './components/RecoverPassword/EmailSent';
 import Dashboard from './components/Dashboard/Dashboard';
 // Pages
 import NewSupplier from './pages/NewSupplier/NewSupplier.jsx';
+import SupplierEdit from './pages/SupplierEdit/SupplierEdit';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path='/dashboard' element={<Login />} />
             <Route path='/dash' element={<Dashboard />} />
             <Route path='/newsupplier' element={<NewSupplier />} />
+            <Route path='/supplieredit' element={<SupplierEdit />} />
             <Route path='/recuperate' element={<RecoverPassword />} />
             <Route path='/mailsent' element={<EmailSent />} />
           </Routes>
