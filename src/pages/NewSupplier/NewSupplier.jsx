@@ -44,6 +44,8 @@ function NewSupplier() {
           'Se guardo correctamente el proveedor',
           'success'
         );
+        console.log('hola');
+        // navigate('/dash');
       }
     });
   }
