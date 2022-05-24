@@ -13,7 +13,7 @@ function ViewContact() {
               <h6>OB</h6>
             </div>
             <div>
-              <h4 className='text-sm font-semibold'>Omar Barragán</h4>
+              <h4 className='text-sm font-semibold'>Omar Barragá</h4>
               <h5 className='text-xs font-normal text-textgray'>Gerente</h5>
             </div>
           </div>
