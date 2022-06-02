@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dashboard/static/css/main.984e16b5.css",
-    "main.js": "/dashboard/static/js/main.73359d28.js",
+    "main.css": "/dashboard/static/css/main.2e9073d5.css",
+    "main.js": "/dashboard/static/js/main.babc4188.js",
     "static/media/eye-slash.svg": "/dashboard/static/media/eye-slash.3c5ff61ebd889e824e802ee9364329e0.svg",
     "static/media/phone.svg": "/dashboard/static/media/phone.1f41014ec718f5073f7d26dddb15aa7a.svg",
     "static/media/lock.svg": "/dashboard/static/media/lock.dd0c5bdd420b7fd7606cd419c10bc019.svg",
@@ -12,6 +12,7 @@
     "static/media/list.svg": "/dashboard/static/media/list.b8c5d6eaa12501f6588bb6c7dc734730.svg",
     "index.html": "/dashboard/index.html",
     "static/media/eye.svg": "/dashboard/static/media/eye.eb38f0ab5a7e247d41135ed634bd1220.svg",
+    "static/media/eyeWhite.svg": "/dashboard/static/media/eyeWhite.da64033c3be078cb79975af320038e04.svg",
     "static/media/warning.svg": "/dashboard/static/media/warning.1127395ccaff6f5fab10f1865edf5ee9.svg",
     "static/media/searchBlack.svg": "/dashboard/static/media/searchBlack.56abaa5fbfbc73cf30597c129382403d.svg",
     "static/media/menu.svg": "/dashboard/static/media/menu.8a0948e48c44d3e528978e965a060c9c.svg",
@@ -23,11 +24,11 @@
     "static/media/arrow1Right.svg": "/dashboard/static/media/arrow1Right.cfda67f551436dd901dddb004cfd1251.svg",
     "static/media/checkButton.svg": "/dashboard/static/media/checkButton.cb10613e5c649d799ae17b47163ac3a5.svg",
     "static/media/plus.svg": "/dashboard/static/media/plus.4228cf1351c7e05d0cbfeee0f7665ba6.svg",
-    "main.984e16b5.css.map": "/dashboard/static/css/main.984e16b5.css.map",
-    "main.73359d28.js.map": "/dashboard/static/js/main.73359d28.js.map"
+    "main.2e9073d5.css.map": "/dashboard/static/css/main.2e9073d5.css.map",
+    "main.babc4188.js.map": "/dashboard/static/js/main.babc4188.js.map"
   },
   "entrypoints": [
-    "static/css/main.984e16b5.css",
-    "static/js/main.73359d28.js"
+    "static/css/main.2e9073d5.css",
+    "static/js/main.babc4188.js"
   ]
 }
