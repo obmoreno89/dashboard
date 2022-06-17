@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dashboard/static/css/main.982f28f2.css",
-    "main.js": "/dashboard/static/js/main.b14102d6.js",
+    "main.css": "/dashboard/static/css/main.15b7674c.css",
+    "main.js": "/dashboard/static/js/main.292945b4.js",
     "static/media/eye-slash.svg": "/dashboard/static/media/eye-slash.3c5ff61ebd889e824e802ee9364329e0.svg",
     "static/media/phone.svg": "/dashboard/static/media/phone.1f41014ec718f5073f7d26dddb15aa7a.svg",
     "static/media/lock.svg": "/dashboard/static/media/lock.dd0c5bdd420b7fd7606cd419c10bc019.svg",
@@ -25,11 +25,11 @@
     "static/media/arrow1Right.svg": "/dashboard/static/media/arrow1Right.cfda67f551436dd901dddb004cfd1251.svg",
     "static/media/checkButton.svg": "/dashboard/static/media/checkButton.cb10613e5c649d799ae17b47163ac3a5.svg",
     "static/media/plus.svg": "/dashboard/static/media/plus.4228cf1351c7e05d0cbfeee0f7665ba6.svg",
-    "main.982f28f2.css.map": "/dashboard/static/css/main.982f28f2.css.map",
-    "main.b14102d6.js.map": "/dashboard/static/js/main.b14102d6.js.map"
+    "main.15b7674c.css.map": "/dashboard/static/css/main.15b7674c.css.map",
+    "main.292945b4.js.map": "/dashboard/static/js/main.292945b4.js.map"
   },
   "entrypoints": [
-    "static/css/main.982f28f2.css",
-    "static/js/main.b14102d6.js"
+    "static/css/main.15b7674c.css",
+    "static/js/main.292945b4.js"
   ]
 }
