@@ -171,7 +171,7 @@ function Login() {
           <p className='text-textblack flex flex-col text-center font-semibold'>
             ¿Quieres ser un proveedor?
             <NavLink className='text-primary ml-2' to='/request/join'>
-              Solicitar unirm
+              Solicitar unirme
             </NavLink>
           </p>
         </div>
