@@ -8,8 +8,16 @@ import iconDash from '../../assets/iconDash';
 function FormSupplierEdit() {
   const [disabledEdit, setDisabledEdit] = useState(true);
   const [suppData, setSuppData] = useState([]);
+  const [country, setCountry] = useState([]);
+  const [show, setShow] = useState([]);
+  const [countryId, setCountryId] = useState('');
+  const [st, setSt] = useState([]);
+  const [stateId, setStateId] = useState('');
+  const [city, setCity] = useState([]);
   const navigate = useNavigate();
   const submit = (data) => console.log(data);
+
+  console.log(show);
 
   const { id } = useParams();
 
@@ -19,6 +27,16 @@ function FormSupplierEdit() {
     reset,
     formState: { errors },
   } = useForm();
+
+  const handleCountry = (event) => {
+    const getCountryId = event.target.value;
+    setCountryId(getCountryId);
+  };
+
+  const handleState = (event) => {
+    const getStateId = event.target.value;
+    setStateId(getStateId);
+  };
 
   function buttonCancel(event) {
     Swal.fire({
@@ -45,10 +63,44 @@ function FormSupplierEdit() {
         .then((response) => response.json())
         .then((json) => {
           setSuppData(json);
+          setShow(json);
         });
     };
     getSuppId();
   }, [id]);
+
+  useEffect(() => {
+    const getCountry = async () => {
+      const resCountry = await fetch(
+        'https://dev.hubmine.mx/api/suppliers/list-countries'
+      );
+      const rescon = await resCountry.json();
+      setCountry(await rescon);
+    };
+    getCountry();
+  }, []);
+
+  useEffect(() => {
+    const getState = async () => {
+      const resState = await fetch(
+        `https://dev.hubmine.mx/api/suppliers/list-states?country-id=${countryId}`
+      );
+      const resst = await resState.json();
+      setSt(await resst);
+    };
+    getState();
+  }, [countryId]);
+
+  useEffect(() => {
+    const getCity = async () => {
+      const resCity = await fetch(
+        `https://dev.hubmine.mx/api/suppliers/list-cities?state-id=${stateId}`
+      );
+      const rCity = await resCity.json();
+      setCity(await rCity);
+    };
+    getCity();
+  }, [stateId]);
 
   return (
     <>
@@ -296,6 +348,325 @@ function FormSupplierEdit() {
                     )}
                   </div>
                 </div>
+              </section>
+              {/* INPUT COUNTRY */}
+              <section className='flex space-x-6 justify-between items-center'>
+                <div className='mt-3 w-3/5'>
+                  <label
+                    className={`label-required ${
+                      errors.country_id && 'span-alert'
+                    }`}>
+                    País
+                  </label>
+                  <div>
+                    <select
+                      className={` py-1 pl-3 w-full rounded-lg text-lg text-textblack border border-gray outline-none focus:outline-none focus:border-primary ${
+                        errors.country_id && 'input-danger'
+                      }`}
+                      {...register('country_id', {
+                        required: {
+                          value: true,
+                          message: 'El campo es requerido',
+                        },
+                      })}
+                      onChange={(e) => handleCountry(e)}>
+                      {suppData.map((countryList) => (
+                        <option value={countryList.location.country_id}>
+                          {countryList.location.country_id}
+                        </option>
+                      ))}
+                      {country.map((countryList) => (
+                        <option key={countryList.id} value={countryList.id}>
+                          {countryList.country}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.country_id && (
+                      <span className='span-alert'>
+                        {errors.country_id.message}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                {/* INPUT STATE */}
+                <div className='mt-3 w-3/5'>
+                  <label
+                    className={`label-required ${
+                      errors.state_id && 'span-alert'
+                    }`}>
+                    Estado
+                  </label>
+                  <div>
+                    <select
+                      className={` py-1 pl-3 w-full rounded-lg text-lg text-textblack border border-gray outline-none focus:outline-none focus:border-primary ${
+                        errors.state_id && 'input-danger'
+                      }`}
+                      {...register('state_id', {
+                        required: {
+                          value: true,
+                          message: 'El campo es requerido',
+                        },
+                      })}
+                      onChange={(e) => handleState(e)}>
+                      {suppData.map((stateList) => (
+                        <option value={stateList.location.state_id}>
+                          {stateList.location.state_id}
+                        </option>
+                      ))}
+                      {st.map((stateList) => (
+                        <option key={stateList.id} value={stateList.id}>
+                          {stateList.state}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.state_id && (
+                      <span className='span-alert'>
+                        {errors.state_id.message}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                {/* INPUT CITY */}
+                <div className='mt-3 w-3/5'>
+                  <label
+                    className={`label-required ${
+                      errors.city_id && 'span-alert'
+                    }`}>
+                    Ciudad
+                  </label>
+                  <div>
+                    <select
+                      className={` py-1 pl-3 w-full rounded-lg text-lg text-textblack border border-gray outline-none focus:outline-none focus:border-primary ${
+                        errors.city_id && 'input-danger'
+                      }`}
+                      {...register('city_id', {
+                        required: {
+                          value: true,
+                          message: 'El campo es requerido',
+                        },
+                      })}>
+                      {suppData.map((cityList) => (
+                        <option value={cityList.location.city_id}>
+                          {cityList.location.city_id}
+                        </option>
+                      ))}
+                      {city.map((cityList) => (
+                        <option key={cityList.id} value={cityList.id}>
+                          {cityList.city}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.city_id && (
+                      <span className='span-alert'>
+                        {errors.city_id.message}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                {/* INPUT POSTAL CODE */}
+                <div className='mt-3 w-3/5'>
+                  <label
+                    className={`label-required ${
+                      errors.postal_code && 'span-alert'
+                    }`}>
+                    Codigo postal
+                  </label>
+                  <div>
+                    <input
+                      defaultValue={suppData.map(
+                        (postalCode) => postalCode.location.postal_code
+                      )}
+                      autoComplete='off'
+                      type='number'
+                      className={` py-1 pl-3 w-full rounded-lg text-lg text-textblack border border-gray outline-none focus:outline-none focus:border-primary  ${
+                        errors.postal_code && 'input-danger'
+                      }`}
+                      {...register('postal_code', {
+                        required: {
+                          value: true,
+                          message: 'El campo es requerido',
+                          maxLength: 15,
+                        },
+                      })}
+                    />
+                    {errors.postal_code && (
+                      <span className='span-alert'>
+                        {errors.postal_code.message}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </section>
+              {/* INPUT DIRECTION */}
+              <section className='mt-3'>
+                <label
+                  className={`label-required ${
+                    errors.direction && 'span-alert'
+                  }`}>
+                  Dirección
+                </label>
+                <div className=''>
+                  <input
+                    defaultValue={suppData.map(
+                      (direction) => direction.location.direction
+                    )}
+                    autoComplete='off'
+                    type='text'
+                    className={` py-1 pl-3 w-full rounded-lg text-lg border text-textblack border-gray outline-none focus:outline-none focus:border-primary  ${
+                      errors.direction && 'input-danger'
+                    }`}
+                    {...register('direction', {
+                      required: {
+                        value: true,
+                        message: 'El campo es requerido',
+                        maxLength: 50,
+                      },
+                    })}
+                  />
+                  {errors.direction && (
+                    <span className='span-alert'>
+                      {errors.direction.message}
+                    </span>
+                  )}
+                </div>
+                {/* INPUT EXTERIOR NUM */}
+                <section className='flex space-x-6 justify-between items-center'>
+                  <div className='mt-3 w-3/5'>
+                    <label
+                      className={`label-required ${
+                        errors.exterior_num && 'span-alert'
+                      }`}>
+                      Numero exterior
+                    </label>
+                    <div>
+                      <input
+                        defaultValue={suppData.map(
+                          (exterior) => exterior.location.exterior_num
+                        )}
+                        autoComplete='off'
+                        type='number'
+                        className={` py-1 pl-3 w-full rounded-lg text-lg text-textblack border border-gray outline-none focus:outline-none focus:border-primary  ${
+                          errors.exterior_num && 'input-danger'
+                        }`}
+                        {...register('exterior_num', {
+                          required: {
+                            value: true,
+                            message: 'El campo es requerido',
+                            maxLength: 15,
+                          },
+                        })}
+                      />
+                      {errors.exterior_num && (
+                        <span className='span-alert'>
+                          {errors.exterior_num.message}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  {/* INPUT INTERIOR NUM */}
+                  <div className='mt-3 w-3/5'>
+                    <label
+                      className={`label-required ${
+                        errors.interior_num && 'span-alert'
+                      }`}>
+                      Numero interior
+                    </label>
+                    <div>
+                      <input
+                        defaultValue={suppData.map(
+                          (interior) => interior.location.interior_num
+                        )}
+                        autoComplete='off'
+                        type='number'
+                        className={` py-1 pl-3 w-full rounded-lg text-lg text-textblack border border-gray outline-none focus:outline-none focus:border-primary  ${
+                          errors.interior_num && 'input-danger'
+                        }`}
+                        {...register('interior_num', {
+                          required: {
+                            value: true,
+                            message: 'El campo es requerido',
+                            maxLength: 15,
+                          },
+                        })}
+                      />
+                      {errors.interior_num && (
+                        <span className='span-alert'>
+                          {errors.interior_num.message}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  {/* INPUT COLONY */}
+                  <div className='mt-3 w-3/5'>
+                    <label
+                      className={`label-required ${
+                        errors.colony && 'span-alert'
+                      }`}>
+                      Colonia
+                    </label>
+                    <div>
+                      <input
+                        defaultValue={suppData.map(
+                          (colony) => colony.location.colony
+                        )}
+                        autoComplete='off'
+                        type='text'
+                        className={`capitalize py-1 pl-3 w-full rounded-lg text-lg text-textblack border border-gray outline-none focus:outline-none focus:border-primary  ${
+                          errors.colony && 'input-danger'
+                        }`}
+                        {...register('colony', {
+                          required: {
+                            value: true,
+                            message: 'El campo es requerido',
+                            maxLength: 25,
+                          },
+                          pattern: {
+                            value: /[a-zA-Z]/,
+                            message: 'El formato no es correcto',
+                          },
+                        })}
+                      />
+                      {errors.colony && (
+                        <span className='span-alert'>
+                          {errors.colony.message}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </section>
+                {/* INPUT OBSERVATIONS */}
+                <section className='mt-3'>
+                  <label
+                    className={`label-required ${
+                      errors.observations && 'span-alert'
+                    }`}>
+                    Observaciones
+                  </label>
+                  <div>
+                    <input
+                      defaultValue={suppData.map(
+                        (observations) => observations.location.observations
+                      )}
+                      autoComplete='off'
+                      type='text'
+                      className={` py-1 pl-3 w-full rounded-lg text-lg border text-textblack border-gray outline-none focus:outline-none focus:border-primary  ${
+                        errors.observations && 'input-danger'
+                      }`}
+                      {...register('observations', {
+                        required: {
+                          value: true,
+                          message: 'El campo es requerido',
+                          maxLength: 50,
+                        },
+                      })}
+                    />
+                    {errors.observations && (
+                      <span className='span-alert'>
+                        {errors.observations.message}
+                      </span>
+                    )}
+                  </div>
+                </section>
               </section>
               {!disabledEdit && (
                 <div className='w-full flex flex-row space-x-3 items-center justify-center h-40'>
