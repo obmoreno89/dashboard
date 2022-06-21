@@ -47,6 +47,7 @@ function FormNewSupplier() {
     }).then((result) => {
       if (result.value) {
         newSupp(data);
+        reset();
       }
     });
   }

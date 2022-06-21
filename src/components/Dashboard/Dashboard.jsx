@@ -101,11 +101,11 @@ function Dashboard() {
       fetch('https://dev.hubmine.mx/api/suppliers/list/')
         .then((response) => response.json())
         .then((json) => {
-          if (json === 404) {
-            Swal.fire('Algo salío mal', `${json.msg}`, 'error');
-          } else {
+          if (json !== 404) {
             setList(json);
             setListTable(json);
+          } else {
+            Swal.fire('Algo salío mal', `${json.msg}`, 'error');
           }
         });
     };
@@ -176,36 +176,44 @@ function Dashboard() {
               </tr>
             </thead>
             <tbody>
-              {list.map((listSupp) => (
-                <tr
-                  key={listSupp.id}
-                  className='w-full h-16 border-y-2 border-gray1 text-center  text-textblack hover:bg-secondary'>
-                  <td className='uppercase'>{listSupp.supplier_name}</td>
-                  <td>{listSupp.supplier_phone}</td>
-                  <td className='uppercase'>{listSupp.supplier_rfc}</td>
-                  <td>{listSupp.supplier_email}</td>
-                  <td>
-                    <div className='flex justify-center items-center'>
-                      <Link to={`/supplier/details/${listSupp.id}`}>
-                        <img
-                          className='bg-primary w-10 h-10 p-2 rounded-xl cursor-pointer '
-                          src={iconDash.eyeWhite}
-                          alt='Ojo'
-                        />
-                      </Link>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <button
-                        className='button-trash'
-                        onClick={() => supplierDelete(listSupp.id)}>
-                        <img src={iconDash.trashCan} alt='bote de basura' />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+              {!list.length ? (
+                <div className='div-center'>
+                  <h1 className='text-textgray font-bold text-5xl'>
+                    sin proveedores
+                  </h1>
+                </div>
+              ) : (
+                list.map((listSupp) => (
+                  <tr
+                    key={listSupp.id}
+                    className='w-full h-16 border-y-2 border-gray1 text-center  text-textblack hover:bg-secondary'>
+                    <td className='uppercase'>{listSupp.supplier_name}</td>
+                    <td>{listSupp.supplier_phone}</td>
+                    <td className='uppercase'>{listSupp.supplier_rfc}</td>
+                    <td>{listSupp.supplier_email}</td>
+                    <td>
+                      <div className='flex justify-center items-center'>
+                        <Link to={`/supplier/details/${listSupp.id}`}>
+                          <img
+                            className='bg-primary w-10 h-10 p-2 rounded-xl cursor-pointer '
+                            src={iconDash.eyeWhite}
+                            alt='Ojo'
+                          />
+                        </Link>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <button
+                          className='button-trash'
+                          onClick={() => supplierDelete(listSupp.id)}>
+                          <img src={iconDash.trashCan} alt='bote de basura' />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </section>

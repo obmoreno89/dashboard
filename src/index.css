@@ -2,87 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
+.logo {
+  @apply w-12;
+}
+.nav {
+  @apply w-full h-20 border-b-2 border-gray;
+}
 
-    .logo{
-        @apply w-12
-    }
-    .nav{
-        @apply w-full h-20 border-b-2 border-gray
-    }
+.nav-container {
+  @apply p-3 flex items-center space-x-3;
+}
 
-    .nav-container{
-       @apply p-3 flex items-center space-x-3
-    }
+.title-hub {
+  @apply w-0 font-bold text-3xl;
+}
 
-    .title-hub{
-        @apply w-0 font-bold text-3xl
-    }
+.span-mine {
+  @apply text-primary;
+}
 
-    .span-mine{
-        @apply text-primary
-    }
+.label-primary {
+  @apply text-sm text-textblack;
+}
 
-    .label-primary{
-        @apply text-sm text-textblack;
-    }
+.label-required {
+  @apply text-sm text-textblack outline-none after:content-['*'] after:ml-0.5 after:text-textdanger;
+}
 
-    .label-required{
-        @apply text-sm text-textblack outline-none after:content-['*'] after:ml-0.5 after:text-textdanger
-    }
+.container-input {
+  @apply relative flex w-full flex-wrap items-stretch mt-2 mb-3;
+}
 
-    .container-input {
-        @apply relative flex w-full flex-wrap items-stretch mt-2 mb-3
-      }
-    
-    .span-image{
-        @apply z-10 h-full text-textblack absolute items-center justify-center w-9 pl-3 py-3
-    }
+.span-image {
+  @apply z-10 h-full text-textblack absolute items-center justify-center w-9 pl-3 py-3;
+}
 
-    .input-primary{
-        @apply px-3 py-3 pl-10 w-full relative rounded-lg text-sm border border-gray outline-none focus:outline-none focus:border-primary
-    }
+.input-primary {
+  @apply px-3 py-3 pl-10 w-full relative rounded-lg text-sm border border-gray outline-none focus:outline-none focus:border-primary;
+}
 
-    .input-danger{
-        @apply  border-red
-    }
+.input-danger {
+  @apply border-red;
+}
 
-    .span-alert{
-        @apply text-xs text-textdanger mt-1
-    }
+.span-alert {
+  @apply text-xs text-textdanger mt-1;
+}
 
-    .button-primary{
-        @apply bg-primary w-5/6 p-3 rounded-lg text-textwhite text-sm cursor-pointer
-    }
+.button-primary {
+  @apply bg-primary w-5/6 p-3 rounded-lg text-textwhite text-sm cursor-pointer;
+}
 
-    .button-danger{
-        @apply bg-danger w-5/6 p-3 rounded-lg text-textwhite text-sm cursor-pointer
-    }
+.button-danger {
+  @apply bg-danger w-5/6 p-3 rounded-lg text-textwhite text-sm cursor-pointer;
+}
 
-    .text-header{
-        @apply text-textgray font-light
-    }
+.text-header {
+  @apply text-textgray font-light;
+}
 
-    .button-secondary{
-        @apply w-32 p-3 rounded-lg text-textwhite text-sm cursor-pointer
-    }
+.button-secondary {
+  @apply w-32 p-3 rounded-lg text-textwhite text-sm cursor-pointer;
+}
 
-    .button-trash{
-        @apply bg-danger w-10 h-10 p-3 rounded-xl text-textwhite text-sm cursor-pointer 
-    }
+.button-trash {
+  @apply bg-danger w-10 h-10 p-3 rounded-xl text-textwhite text-sm cursor-pointer;
+}
 
-    .button-show{
-       
-        @apply bg-primary w-10 h-10 p-3 rounded-xl text-textwhite text-sm cursor-pointer 
-      
-    }
+.button-show {
+  @apply bg-primary w-10 h-10 p-3 rounded-xl text-textwhite text-sm cursor-pointer;
+}
 
-    .dash-titles{
-        @apply font-bold text-xl text-textgray1
-    }
+.dash-titles {
+  @apply font-bold text-xl text-textgray1;
+}
 
+.div-center {
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
 
-    input[type=number]::-webkit-inner-spin-button, 
-    input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0; 
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

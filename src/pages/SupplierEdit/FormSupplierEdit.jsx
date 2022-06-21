@@ -9,13 +9,11 @@ function FormSupplierEdit() {
   const [disabledEdit, setDisabledEdit] = useState(true);
   const [suppData, setSuppData] = useState([]);
   const [country, setCountry] = useState([]);
-  const [show, setShow] = useState([]);
   const [countryId, setCountryId] = useState('');
   const [st, setSt] = useState([]);
   const [stateId, setStateId] = useState('');
   const [city, setCity] = useState([]);
   const navigate = useNavigate();
-  const submit = (data) => console.log(data);
 
   const { id } = useParams();
 
@@ -81,7 +79,6 @@ function FormSupplierEdit() {
         .then((response) => response.json())
         .then((json) => {
           setSuppData(json);
-          setShow(json);
         });
     };
     getSuppId();
@@ -419,7 +416,7 @@ function FormSupplierEdit() {
                         <option
                           key={countryList.location.country_id}
                           value={countryList.location.country_id}>
-                          {countryList.location.country_id}
+                          {countryList.location.country}
                         </option>
                       ))}
 
@@ -460,7 +457,7 @@ function FormSupplierEdit() {
                         <option
                           key={stateList.location.country_id}
                           value={stateList.location.state_id}>
-                          {stateList.location.state_id}
+                          {stateList.location.state}
                         </option>
                       ))}
                       {st.map((stateList) => (
@@ -499,7 +496,7 @@ function FormSupplierEdit() {
                         <option
                           key={cityList.location.country_id}
                           value={cityList.location.city_id}>
-                          {cityList.location.city_id}
+                          {cityList.location.city}
                         </option>
                       ))}
                       {city.map((cityList) => (
