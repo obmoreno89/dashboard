@@ -17,8 +17,6 @@ function FormSupplierEdit() {
   const navigate = useNavigate();
   const submit = (data) => console.log(data);
 
-  console.log(show);
-
   const { id } = useParams();
 
   const {
@@ -38,7 +36,27 @@ function FormSupplierEdit() {
     setStateId(getStateId);
   };
 
+  function saveSupplier(data) {
+    Swal.fire({
+      imageUrl: iconDash.warning,
+      imageHeight: 100,
+      imageWidth: 100,
+      text: '¿Esta seguro que desea guardar el contacto?',
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: '#0DB1AC',
+      cancelButtonText: 'Cancelar',
+      cancelButtonColor: '#FF5859',
+      showCancelButton: true,
+    }).then((result) => {
+      if (result.value) {
+        supplierUpdate(data);
+        navigate('/dashboard/dashboard');
+      }
+    });
+  }
+
   function buttonCancel(event) {
+    event.preventDefault();
     Swal.fire({
       imageUrl: iconDash.warning,
       imageHeight: 100,
@@ -102,18 +120,45 @@ function FormSupplierEdit() {
     getCity();
   }, [stateId]);
 
+  const supplierUpdate = (data) => {
+    fetch(`https://dev.hubmine.mx/api/suppliers/update/${id}/`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }).then((response) => {
+      if (response.status === 200) {
+        Swal.fire(
+          'Operación exitosa!',
+          'El contacto se actualizo correctamente',
+          'success'
+        );
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Algo salio mal',
+          text: 'Nuestro servidor por el momento no esta disponible',
+        });
+      }
+    });
+  };
+
   return (
     <>
       <section>
         <div className='flex h-20 w-full items-center p-8'>
           <div className='w-full flex items-center justify-end'>
-            <button onClick={() => setDisabledEdit(!disabledEdit)}>
+            <button
+              onClick={() => {
+                setDisabledEdit(!disabledEdit);
+              }}>
               <img src={iconDash.pencil} alt='lapiz' />
             </button>
           </div>
         </div>
         <section className='w-full flex justify-center'>
-          <form onSubmit={handleSubmit(submit)} className='mt-5 p-3 w-3/5'>
+          <form className='mt-5 p-3 w-3/5'>
             <fieldset disabled={disabledEdit}>
               {/* INPUT SUPPLIER */}
               <section>
@@ -371,10 +416,13 @@ function FormSupplierEdit() {
                       })}
                       onChange={(e) => handleCountry(e)}>
                       {suppData.map((countryList) => (
-                        <option value={countryList.location.country_id}>
+                        <option
+                          key={countryList.location.country_id}
+                          value={countryList.location.country_id}>
                           {countryList.location.country_id}
                         </option>
                       ))}
+
                       {country.map((countryList) => (
                         <option key={countryList.id} value={countryList.id}>
                           {countryList.country}
@@ -409,7 +457,9 @@ function FormSupplierEdit() {
                       })}
                       onChange={(e) => handleState(e)}>
                       {suppData.map((stateList) => (
-                        <option value={stateList.location.state_id}>
+                        <option
+                          key={stateList.location.country_id}
+                          value={stateList.location.state_id}>
                           {stateList.location.state_id}
                         </option>
                       ))}
@@ -446,7 +496,9 @@ function FormSupplierEdit() {
                         },
                       })}>
                       {suppData.map((cityList) => (
-                        <option value={cityList.location.city_id}>
+                        <option
+                          key={cityList.location.country_id}
+                          value={cityList.location.city_id}>
                           {cityList.location.city_id}
                         </option>
                       ))}
@@ -670,7 +722,9 @@ function FormSupplierEdit() {
               </section>
               {!disabledEdit && (
                 <div className='w-full flex flex-row space-x-3 items-center justify-center h-40'>
-                  <button type='submit' className='button-secondary bg-primary'>
+                  <button
+                    onClick={handleSubmit(saveSupplier)}
+                    className='button-secondary bg-primary'>
                     Guardar
                   </button>
                   <button
