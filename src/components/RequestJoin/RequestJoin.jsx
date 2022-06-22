@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from '../../assets/logo';
 import imagePlant from '../../assets/img/imagePlant.png';
+import AboutUser from './AboutUser';
 
 function RequestJoin() {
   return (
     <>
-      <nav className='nav'>
+      <nav className='w-3/4 h-20 border-b-2 border-gray'>
         <div className='nav-container'>
           <img className='w-12' src={logo.logo} alt='logo hubmine' />
           <h1 className='title-hub'>
@@ -13,15 +14,10 @@ function RequestJoin() {
           </h1>
         </div>
       </nav>
-      <section className='w-full flex h-10'>
-        <div className='w-full p-12'>
-          <h4 className='text-textgray1 text-sm'>Hubmine para proveedores</h4>
-          <h1 className='text-textblack font-bold text-2xl'>
-            Cuéntanos sobre tu negocio
-          </h1>
-        </div>
+      <section className='w-full h-96 flex'>
+        <AboutUser />
         <article
-          className='w-full relative bottom-20 flex justify-center items-center'
+          className='w-full flex relative transform -translate-y-20 justify-center items-center'
           style={{
             backgroundImage: `url(${imagePlant})`,
             backgroundRepeat: 'no-repeat',
@@ -38,6 +34,12 @@ function RequestJoin() {
           </div>
         </article>
       </section>
+      <div className='pl-12 w-3/4 flex items-center space-x-96'>
+        <button className='bg-whiteGreen text-primary w-80  p-3 rounded-lg text-textwhite text-lg cursor-pointer;'>
+          Siguiente
+        </button>
+        <p className='text-primary font-semibold text-xl'>1 / 5</p>
+      </div>
     </>
   );
 }

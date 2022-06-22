@@ -24,11 +24,13 @@ module.exports = {
       danger: '#FF5859',
       white: '#ffff',
       purple: '#7e5bef',
+      whiteGreen: '#B7E8E7',
     },
 
     borderColor: {
       primary: '#0DB1AC',
       secondary: '#D8F6F0',
+      whiteGreen: '#B7E8E7',
       white: '#ffff',
       gray: '#d5d6d8',
       red: '#FF5859',
