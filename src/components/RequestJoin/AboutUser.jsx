@@ -10,13 +10,7 @@ function AboutUser() {
   } = useForm();
 
   return (
-    <main className='w-full p-12 flex flex-col justify-center'>
-      <article>
-        <h4 className='text-textgray1 text-sm'>Hubmine para proveedores</h4>
-        <h1 className='text-textblack font-bold text-2xl'>
-          Cuéntanos sobre tu negocio
-        </h1>
-      </article>
+    <main className='w-full flex flex-col justify-center'>
       {/* INPUT SUPPLIER */}
       <section className='mt-6'>
         <label
