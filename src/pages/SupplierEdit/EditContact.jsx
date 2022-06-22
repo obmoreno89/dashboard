@@ -114,7 +114,7 @@ function EditContact({
       <section className='w-full flex flex-col items-center justify-center'>
         <div className='mt-5'>
           <div className='w-24 h-24 rounded-full bg-primary text-textwhite flex justify-center items-center'>
-            <h1 className='text-3xl'>
+            <h1 className='capitalize text-3xl'>
               {contactId.map((nameContact) => {
                 return nameContact.contact_name[0];
               })}

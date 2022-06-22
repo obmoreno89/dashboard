@@ -21,12 +21,12 @@ function RequestJoin() {
           </h1>
         </div>
         <article
-          className='w-full h-full relative bottom-20 flex justify-center items-center'
+          className='w-full relative bottom-20 flex justify-center items-center'
           style={{
             backgroundImage: `url(${imagePlant})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
-            height: 555,
+            height: 775,
             width: 600,
           }}>
           <div className='flex flex-col items-center'>

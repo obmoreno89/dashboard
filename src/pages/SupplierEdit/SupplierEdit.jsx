@@ -69,14 +69,14 @@ function SupplierEdit() {
           </button>
         </div>
       </nav>
-      <main className='full h-full flex'>
-        <section className='w-80 h-auto border-r-2 border-gray'>
+      <main className='flex'>
+        <section className='w-80 border-r-2 border-gray'>
           <LateralMenu />
         </section>
-        <section className='w-full h-auto'>
+        <section className='w-full'>
           <FormSupplierEdit />
         </section>
-        <section className='w-2/5 h-auto border-l-2 border-gray'>
+        <section className='w-2/5 border-l-2 border-gray'>
           <nav className='flex justify-between border-b-2 border-gray h-16'>
             <div className='ml-4 flex items-center'>
               <h4 className='text-textgray1 font-medium'>Contactos</h4>

@@ -135,7 +135,11 @@ function ViewContact({ setSearchContact, searchContact }) {
           </div>
         </nav>
       )}
-      {sectionContact ? (
+      {!contact.length ? (
+        <div className='flex justify-center items-center h-2/4'>
+          <h1 className='text-textgray font-bold text-2xl'>Sin contactos</h1>
+        </div>
+      ) : sectionContact ? (
         <>
           {contact.map((contactList) => (
             <section

@@ -154,7 +154,7 @@ function FormSupplierEdit() {
             </button>
           </div>
         </div>
-        <section className='w-full flex justify-center'>
+        <section className='w-full flex justify-center h-screen'>
           <form className='mt-5 p-3 w-3/5'>
             <fieldset disabled={disabledEdit}>
               {/* INPUT SUPPLIER */}

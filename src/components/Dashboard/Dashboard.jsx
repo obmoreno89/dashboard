@@ -159,11 +159,11 @@ function Dashboard() {
           </button>
         </div>
       </nav>
-      <main className='w-full h-full flex'>
+      <main className='flex'>
         <section className='w-60 border-r-2 border-gray'>
           <LateralMenu />
         </section>
-        <section className='w-full h-auto'>
+        <section className='w-full h-screen'>
           <table className='w-full mt-2'>
             <thead>
               <tr className='h-12'>
@@ -178,7 +178,7 @@ function Dashboard() {
             <tbody>
               {!list.length ? (
                 <div className='div-center'>
-                  <h1 className='text-textgray font-bold text-5xl'>
+                  <h1 className='text-textgray font-bold text-4xl'>
                     sin proveedores
                   </h1>
                 </div>
