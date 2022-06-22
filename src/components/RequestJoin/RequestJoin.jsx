@@ -3,9 +3,25 @@ import logo from '../../assets/logo';
 import iconDash from '../../assets/iconDash';
 import imagePlant from '../../assets/img/imagePlant.png';
 import AboutUser from './AboutUser';
+import UserType from './UserType';
+import UserCountry from './UserCountry';
+import DataUser from './DataUser';
+import UserSocialMedia from './UserSocialMedia';
 
 function RequestJoin() {
   const [page, setPage] = useState(0);
+  const [formData, setFormData] = useState({
+    supplier_name: '',
+    supplier_country: '',
+    supplier_phone: '',
+    supplier_type: '',
+    supplier_email: '',
+    supplier_source: '',
+    contact_name: '',
+    contact_phone: '',
+    contact_potisition: '',
+    contact_email: '',
+  });
 
   const pageNext = () => {
     setPage((currPage) => currPage + 1);
@@ -13,6 +29,20 @@ function RequestJoin() {
 
   const pagePrev = () => {
     setPage((currPage) => currPage - 1);
+  };
+
+  const pageDisplay = () => {
+    if (page === 0) {
+      return <AboutUser formData={formData} setFormData={setFormData} />;
+    } else if (page === 1) {
+      return <UserType formData={formData} setFormData={setFormData} />;
+    } else if (page === 2) {
+      return <UserCountry formData={formData} setFormData={setFormData} />;
+    } else if (page === 3) {
+      return <DataUser formData={formData} setFormData={setFormData} />;
+    } else if (page === 4) {
+      return <UserSocialMedia formData={formData} setFormData={setFormData} />;
+    }
   };
 
   return (
@@ -29,15 +59,13 @@ function RequestJoin() {
       <section className='w-full h-96 flex'>
         <article className='p-20 w-full'>
           <div className='flex relative right-10 space-x-4'>
-            <button onClick={pagePrev}>
+            <button disabled={page === 0} onClick={pagePrev}>
               <img src={iconDash.arrowLeft} alt='flecha izquierda' />
             </button>
             <h4 className='text-textgray1 text-sm'>Hubmine para proveedores</h4>
           </div>
-          <h1 className='text-textblack font-bold text-2xl'>
-            Cuéntanos sobre tu negocio
-          </h1>
-          <AboutUser />
+
+          {pageDisplay()}
         </article>
         <article
           className='w-full flex relative transform -translate-y-20 justify-center items-center'
@@ -60,6 +88,7 @@ function RequestJoin() {
       <div className='pl-20 w-3/4 flex items-center space-x-96'>
         <div className='flex space-x-4 '>
           <button
+            disabled={page === 4}
             onClick={pageNext}
             className='bg-whiteGreen text-primary w-80  p-3 rounded-lg text-textwhite text-lg cursor-pointer;'>
             Siguiente

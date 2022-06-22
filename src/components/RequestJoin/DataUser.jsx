@@ -1,33 +1,56 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-function AboutUser({ setFormData, formData }) {
+function DataUser({ setFormData, formData }) {
   const {
-    register,
     handleSubmit,
-    reset,
+    register,
     formState: { errors },
   } = useForm();
 
-  console.log(formData);
-
   return (
-    <section className='w-full flex flex-col justify-center'>
+    <>
       <h1 className='text-textblack font-bold text-2xl'>
-        Cuéntanos sobre tu negocio
+        Información de persona de contacto (Ejecutivo)
       </h1>
-      {/* INPUT USER */}
-      <section className='mt-6'>
+      <section className='mt-1'>
         <label
           className={`label-required ${errors.supplier_name && 'span-alert'}`}>
           Nombre completo o Razón social
         </label>
+        {/* INPUT USER NAME */}
         <div>
           <input
-            value={formData.supplier_name}
-            onChange={(event) =>
-              setFormData({ ...formData, supplier_name: event.target.value })
-            }
+            autoComplete='off'
+            type='text'
+            className={`capitalize py-2 pl-2 w-full rounded-lg text-2xl text-textblack border border-gray outline-none focus:outline-none focus:border-primary  ${
+              errors.supplier_name && 'input-danger'
+            }`}
+            {...register('supplier_name', {
+              required: {
+                value: true,
+                message: 'El campo es requerido',
+                maxLength: 30,
+              },
+              pattern: {
+                value: /[a-zA-Z]/,
+                message: 'El formato no es correcto',
+              },
+            })}
+          />
+          {errors.supplier_name && (
+            <span className='span-alert'>{errors.supplier_name.message}</span>
+          )}
+        </div>
+      </section>
+      <section className='mt-1'>
+        <label
+          className={`label-required ${errors.supplier_name && 'span-alert'}`}>
+          Puesto
+        </label>
+        {/* INPUT POSITION */}
+        <div>
+          <input
             autoComplete='off'
             type='text'
             className={`capitalize py-2 pl-2 w-full rounded-lg text-2xl text-textblack border border-gray outline-none focus:outline-none focus:border-primary  ${
@@ -51,7 +74,7 @@ function AboutUser({ setFormData, formData }) {
         </div>
       </section>
       {/* INPUT PHONE */}
-      <section className='flex space-x-6 justify-between items-center mt-5'>
+      <section className='flex space-x-6 justify-between items-center mt-1'>
         <div className='w-2/5'>
           <label
             className={`label-required ${
@@ -118,8 +141,8 @@ function AboutUser({ setFormData, formData }) {
           </div>
         </div>
       </section>
-    </section>
+    </>
   );
 }
 
-export default AboutUser;
+export default DataUser;
