@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/dashboard/static/css/main.ee23f172.css",
+    "main.js": "/dashboard/static/js/main.70bf09cd.js",
+    "static/media/imagePlant.png": "/dashboard/static/media/imagePlant.ba78b00e293b097e5e40.png",
+    "static/media/truck.svg": "/dashboard/static/media/truck.302c829824623175b6a3ed964327dabf.svg",
+    "static/media/eye-slash.svg": "/dashboard/static/media/eye-slash.3c5ff61ebd889e824e802ee9364329e0.svg",
+    "static/media/phone.svg": "/dashboard/static/media/phone.1f41014ec718f5073f7d26dddb15aa7a.svg",
+    "static/media/lock.svg": "/dashboard/static/media/lock.dd0c5bdd420b7fd7606cd419c10bc019.svg",
+    "static/media/pencil.svg": "/dashboard/static/media/pencil.8bd760817af1a4c9414c6a12ac9b309a.svg",
+    "static/media/logo.svg": "/dashboard/static/media/logo.90d02d6330539fecf759566461540e18.svg",
+    "static/media/trashCanBlack.svg": "/dashboard/static/media/trashCanBlack.4ab5a0556ee7dd279e81171d6bae817b.svg",
+    "static/media/trashCanGrey.svg": "/dashboard/static/media/trashCanGrey.c538a2db4da5ad99fe8c41fb592d754d.svg",
+    "static/media/trashCan.svg": "/dashboard/static/media/trashCan.3fcff703fea814d599dbe2406e261f12.svg",
+    "static/media/list.svg": "/dashboard/static/media/list.b8c5d6eaa12501f6588bb6c7dc734730.svg",
+    "index.html": "/dashboard/index.html",
+    "static/media/eye.svg": "/dashboard/static/media/eye.eb38f0ab5a7e247d41135ed634bd1220.svg",
+    "static/media/eyeWhite.svg": "/dashboard/static/media/eyeWhite.da64033c3be078cb79975af320038e04.svg",
+    "static/media/warning.svg": "/dashboard/static/media/warning.1127395ccaff6f5fab10f1865edf5ee9.svg",
+    "static/media/searchBlack.svg": "/dashboard/static/media/searchBlack.56abaa5fbfbc73cf30597c129382403d.svg",
+    "static/media/menu.svg": "/dashboard/static/media/menu.8a0948e48c44d3e528978e965a060c9c.svg",
+    "static/media/search.svg": "/dashboard/static/media/search.20eecd2cd757697f75f7ce75d350e2c0.svg",
+    "static/media/mail.svg": "/dashboard/static/media/mail.4b750e622ce8f54c02331750cd95c991.svg",
+    "static/media/emailgray.svg": "/dashboard/static/media/emailgray.8610c2c5445d3e7c7c64274fddcb4179.svg",
+    "static/media/cancelButton.svg": "/dashboard/static/media/cancelButton.b26427960f56eb6d2138246ef7751162.svg",
+    "static/media/arrowLeft.svg": "/dashboard/static/media/arrowLeft.02e5f429274022a7eccbca2e5956ecd3.svg",
+    "static/media/arrow1Right.svg": "/dashboard/static/media/arrow1Right.cfda67f551436dd901dddb004cfd1251.svg",
+    "static/media/checkButton.svg": "/dashboard/static/media/checkButton.cb10613e5c649d799ae17b47163ac3a5.svg",
+    "static/media/plus.svg": "/dashboard/static/media/plus.4228cf1351c7e05d0cbfeee0f7665ba6.svg",
+    "main.ee23f172.css.map": "/dashboard/static/css/main.ee23f172.css.map",
+    "main.70bf09cd.js.map": "/dashboard/static/js/main.70bf09cd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ee23f172.css",
+    "static/js/main.70bf09cd.js"
+  ]
+}
