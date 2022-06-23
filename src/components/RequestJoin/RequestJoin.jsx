@@ -11,7 +11,6 @@ function RequestJoin() {
     register,
     watch,
     handleSubmit,
-    reset,
     formState: { errors, isValid },
   } = useForm({ mode: 'all' });
 
@@ -168,6 +167,7 @@ function RequestJoin() {
                 )}
                 {page === 1 && (
                   <section>
+                    {/* OPTION USER TYPE */}
                     <div>
                       <h1 className='text-textblack font-bold text-2xl'>
                         Cuéntanos sobre tu negocio
@@ -192,6 +192,7 @@ function RequestJoin() {
                             },
                           })}>
                           <option value=''>Selecciona una opción</option>
+                          <option value='1'>Venta de material</option>
                         </select>
                         {errors.country_id && (
                           <span className='span-alert'>
@@ -204,6 +205,7 @@ function RequestJoin() {
                 )}
                 {page === 2 && (
                   <section>
+                    {/* COUNTRY */}
                     <div>
                       <h1 className='text-textblack font-bold text-2xl'>
                         ¿Cuál es tu país?
@@ -223,6 +225,7 @@ function RequestJoin() {
                             },
                           })}>
                           <option value=''>Selecciona un país</option>
+                          <option value='1'>mexico</option>
                         </select>
                         {errors.country_id && (
                           <span className='span-alert'>
@@ -400,6 +403,7 @@ function RequestJoin() {
                             },
                           })}>
                           <option value=''>Selecciona una opción</option>
+                          <option value='1'>Facebook</option>
                         </select>
                         {errors.country_id && (
                           <span className='span-alert'>
@@ -432,16 +436,27 @@ function RequestJoin() {
             </article>
           </section>
           <div className='pl-20 w-3/4 flex items-center space-x-96'>
-            <div className='flex space-x-4 '>
-              <button
-                // disabled={!isValid}
-                onClick={pageNext}
-                type='submit'
-                className='bg-whiteGreen text-primary w-80  p-3 rounded-lg text-textwhite text-lg cursor-pointer;'>
-                Siguiente
-              </button>
-            </div>
-            <p className='text-primary font-semibold text-xl'>{page + 1} / 4</p>
+            {!isValid ? (
+              <div className='flex space-x-4 '>
+                <button
+                  disabled={!isValid}
+                  onClick={pageNext}
+                  type='submit'
+                  className='bg-whiteGreen text-primary w-80  p-3 rounded-lg  text-lg cursor-pointer'>
+                  Siguiente
+                </button>
+              </div>
+            ) : (
+              <div className='flex space-x-4 '>
+                <button
+                  onClick={pageNext}
+                  type='submit'
+                  className='bg-primary text-textwhite w-80  p-3 rounded-lg text-lg cursor-pointer'>
+                  Siguiente
+                </button>
+              </div>
+            )}
+            <p className='text-primary font-semibold text-xl'>{page + 1} / 5</p>
           </div>
         </>
       )}
