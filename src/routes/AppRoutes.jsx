@@ -10,6 +10,7 @@ import SupplierEdit from '../pages/SupplierEdit/SupplierEdit';
 import PrivateRoutes from './PrivateRoutes';
 import PublicRoute from './PublicRoute';
 import RequestJoin from '../components/RequestJoin/RequestJoin';
+import ThanksPage from '../pages/ThanksPage/ThanksPage';
 
 function AppRoutes() {
   return (
@@ -35,13 +36,23 @@ function AppRoutes() {
         />
 
         <Route
-          path='/request/join'
+          path='/request/join/*'
           element={
             <PublicRoute>
               <RequestJoin />
             </PublicRoute>
           }
         />
+
+        <Route
+          path='/hola'
+          element={
+            <PublicRoute>
+              <ThanksPage />
+            </PublicRoute>
+          }
+        />
+
         {/* Private Routes */}
         <Route
           path='/dashboard/dashboard'

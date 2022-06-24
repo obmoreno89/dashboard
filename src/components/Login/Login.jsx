@@ -12,8 +12,6 @@ function Login() {
   let navigate = useNavigate();
   const cookies = new Cookies();
 
-  // const onSubmit = (data) => console.log(data);
-
   const {
     register,
     handleSubmit,
