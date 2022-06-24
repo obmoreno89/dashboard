@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import logo from '../../assets/logo';
 import iconDash from '../../assets/iconDash';
 import imagePlant from '../../assets/img/imagePlant.png';
+import imagePlantLg from '../../assets/img/imagePlantLg.png';
 import { useForm } from 'react-hook-form';
+import UserCarousel from './UserCarousel';
 
 function RequestJoin() {
   const [page, setPage] = useState(0);
@@ -35,7 +37,14 @@ function RequestJoin() {
         </div>
       </nav>
       {page === 5 ? (
-        <h1>hola</h1>
+        <section
+          style={{
+            backgroundImage: `url(${imagePlantLg})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            height: '100vh',
+            width: '100%',
+          }}></section>
       ) : (
         <>
           <section className='w-full h-96 flex'>
@@ -426,12 +435,8 @@ function RequestJoin() {
                 height: 775,
                 width: 600,
               }}>
-              <div className='flex flex-col items-center'>
-                <img src={logo.truck} alt='Escavadora' />
-                <p className='w-80 text-center text-lg text-textwhite font-semibold mt-2'>
-                  Eleva tus ganancias vendiendo tus productos desde nuestra
-                  aplicación. completa el formulario de pre-registro.
-                </p>
+              <div className='w-20 flex flex-col items-center'>
+                <UserCarousel />
               </div>
             </article>
           </section>

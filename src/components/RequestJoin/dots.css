@@ -1,0 +1,7 @@
+.slick-slide img {
+  margin: auto;
+}
+
+li.slick-active > button::before {
+  color: white !important;
+}
