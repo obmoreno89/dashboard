@@ -15,7 +15,7 @@ function AddContact({ setPlusContact, plusContact }) {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: 'all' });
 
   function saveContact(data) {
     Swal.fire({

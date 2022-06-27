@@ -26,10 +26,6 @@ function RequestJoin() {
     setPage((currPage) => currPage - 1);
   };
 
-  const returnHome = () => navigate('/dashboard');
-
-  const submit = (data) => console.log(data);
-
   const renderButton = () => {
     if (page > 4) {
       return undefined;

@@ -19,7 +19,7 @@ function EditContact({
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: 'all' });
 
   const handleEdit = () => setFormAddContact(!formAddContact);
 

@@ -22,7 +22,7 @@ function FormSupplierEdit() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: 'all' });
 
   const handleCountry = (event) => {
     const getCountryId = event.target.value;

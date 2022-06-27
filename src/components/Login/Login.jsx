@@ -17,7 +17,7 @@ function Login() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: 'all' });
 
   function toggleEye() {
     setEye((prevState) => !prevState);
