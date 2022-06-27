@@ -36,7 +36,7 @@ function AppRoutes() {
         />
 
         <Route
-          path='/request/join/*'
+          path='/request/join/'
           element={
             <PublicRoute>
               <RequestJoin />
@@ -45,7 +45,7 @@ function AppRoutes() {
         />
 
         <Route
-          path='/hola'
+          path='/form/finish'
           element={
             <PublicRoute>
               <ThanksPage />

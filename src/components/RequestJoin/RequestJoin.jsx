@@ -38,7 +38,7 @@ function RequestJoin() {
         <div className='flex space-x-4 '>
           <button
             type='submit'
-            // disabled={!isValid}
+            disabled={!isValid}
             className='bg-primary disabled:bg-whiteGreen text-secondary w-80  p-3 rounded-lg  text-lg cursor-pointer'>
             Finalizar
           </button>
@@ -48,7 +48,7 @@ function RequestJoin() {
       return (
         <div className='flex space-x-4 '>
           <button
-            // disabled={!isValid}
+            disabled={!isValid}
             onClick={pageNext}
             type='button'
             className='bg-primary disabled:bg-whiteGreen text-secondary w-80  p-3 rounded-lg  text-lg cursor-pointer'>
@@ -80,25 +80,23 @@ function RequestJoin() {
   }
 
   async function userData(data) {
-    fetch('https://dev.hubmine.mx/api/suppliers/register', {
+    fetch('https://dev.hubmine.mx/api/forms/suppliers/register/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        if (json.msg === 201) {
-          navigate('/hola');
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Disculpa las molestias',
-            text: 'Al parecer tenemos problemas con nuestro servidor',
-          });
-        }
-      });
+    }).then((response) => {
+      if (response.msg !== 'success') {
+        navigate('/form/finish');
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Disculpa las molestias',
+          text: 'Al parecer tenemos problemas con nuestro servidor',
+        });
+      }
+    });
   }
 
   return (
@@ -128,25 +126,25 @@ function RequestJoin() {
               </h4>
             </div>
           </section>
-          <form onSubmit={handleSubmit(submit)}>
+          <form onSubmit={handleSubmit(userData)}>
             {page === 0 && (
               <section className='w-full flex flex-col justify-center'>
                 <h1 className='text-textblack font-bold text-2xl'>
                   Cuéntanos sobre tu negocio
                 </h1>
-                {/* INPUT USER */}
+                {/* INPUT COMPANY */}
                 <section className='mt-6'>
                   <label
                     className={`label-required ${
                       errors.supplier_name && 'span-alert'
                     }`}>
-                    Nombre completo o Razón social
+                    Razón social
                   </label>
                   <div>
                     <input
                       autoComplete='off'
                       type='text'
-                      className={`capitalize py-2 pl-2 w-full rounded-lg text-2xl text-textblack border border-gray outline-none focus:outline-none focus:border-primary  ${
+                      className={`uppercase py-2 pl-2 w-full rounded-lg text-2xl text-textblack border border-gray outline-none focus:outline-none focus:border-primary  ${
                         errors.supplier_name && 'input-danger'
                       }`}
                       {...register('supplier_name', {
@@ -265,7 +263,7 @@ function RequestJoin() {
                         },
                       })}>
                       <option value=''>Selecciona una opción</option>
-                      <option value='1'>Venta de material</option>
+                      <option value='pedrera'>Pedrera</option>
                     </select>
                     {errors.supplier_type && (
                       <span className='span-alert'>
@@ -298,7 +296,7 @@ function RequestJoin() {
                         },
                       })}>
                       <option value=''>Selecciona un país</option>
-                      <option value='1'>mexico</option>
+                      <option value='1'>Mexico</option>
                     </select>
                     {errors.supplier_country && (
                       <span className='span-alert'>
@@ -322,7 +320,7 @@ function RequestJoin() {
                     className={`label-required ${
                       errors.contact_name && 'span-alert'
                     }`}>
-                    Nombre completo o Razón social
+                    Nombre completo
                   </label>
 
                   <div>
@@ -355,7 +353,7 @@ function RequestJoin() {
                   {/* INPUT POSITION */}
                   <label
                     className={`label-required ${
-                      errors.contact_potisition && 'span-alert'
+                      errors.contact_position && 'span-alert'
                     }`}>
                     Puesto
                   </label>
@@ -365,9 +363,9 @@ function RequestJoin() {
                       autoComplete='off'
                       type='text'
                       className={`capitalize py-2 pl-2 w-full rounded-lg text-2xl text-textblack border border-gray outline-none focus:outline-none focus:border-primary  ${
-                        errors.contact_potisition && 'input-danger'
+                        errors.contact_position && 'input-danger'
                       }`}
-                      {...register('contact_potisition', {
+                      {...register('contact_position', {
                         required: {
                           value: true,
                           message: 'El campo es requerido',
@@ -379,9 +377,9 @@ function RequestJoin() {
                         },
                       })}
                     />
-                    {errors.contact_potisition && (
+                    {errors.contact_position && (
                       <span className='span-alert'>
-                        {errors.contact_potisition.message}
+                        {errors.contact_position.message}
                       </span>
                     )}
                   </div>
@@ -459,6 +457,7 @@ function RequestJoin() {
             {page === 4 && (
               <section>
                 <div>
+                  {/* OPTION SUPPLIER SOURCE */}
                   <h1 className='text-textblack font-bold text-2xl'>
                     ¿Como te enteraste de Hubmine?
                   </h1>
@@ -477,7 +476,7 @@ function RequestJoin() {
                         },
                       })}>
                       <option value=''>Selecciona una opción</option>
-                      <option value='1'>Facebook</option>
+                      <option value='facebook'>Facebook</option>
                     </select>
                     {errors.supplier_source && (
                       <span className='span-alert'>
@@ -494,7 +493,7 @@ function RequestJoin() {
                 {page + 1} / 5
               </p>
             </div>
-            <pre>{JSON.stringify(watch(), null, 4)}</pre>
+            {/* <pre>{JSON.stringify(watch(), null, 4)}</pre> */}
           </form>
         </article>
         <article
