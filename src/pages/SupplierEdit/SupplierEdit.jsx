@@ -70,7 +70,7 @@ function SupplierEdit() {
         </div>
       </nav>
       <main className='flex'>
-        <section className='w-80 border-r-2 border-gray'>
+        <section className='border-r-2 border-gray'>
           <LateralMenu />
         </section>
         <section className='w-full'>

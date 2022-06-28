@@ -159,7 +159,7 @@ function Dashboard() {
           </button>
         </div>
       </nav>
-      <main className='flex h-screen'>
+      <main className='flex  h-screen'>
         <LateralMenu />
         <section className='w-full'>
           <table className='w-full mt-2'>

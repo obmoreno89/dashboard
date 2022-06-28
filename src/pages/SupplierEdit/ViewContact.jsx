@@ -120,7 +120,7 @@ function ViewContact({ setSearchContact, searchContact }) {
               <img src={iconDash.arrowLeft} alt='flecha izquierda' />
             </button>
           </div>
-          <div className='w-72 ml-4'>
+          <div className='w-36 xl:w-64 ml-4'>
             <span className='span-image'>
               <img src={iconDash.search} alt='lupa' />
             </span>
@@ -129,7 +129,7 @@ function ViewContact({ setSearchContact, searchContact }) {
               autoComplete='off'
               type='text'
               className='input-primary '
-              placeholder='Buscar contacto'
+              placeholder='Buscar...'
               onChange={handleChange}
             />
           </div>
@@ -217,7 +217,7 @@ function ViewContact({ setSearchContact, searchContact }) {
                   </h3>
                 </div>
                 <div className='flex space-x-3 mt-10 w-72'>
-                  <figure>
+                  <figure className='ml-5'>
                     <img src={iconDash.phone} alt='' />
                   </figure>
                   <article>
@@ -229,7 +229,7 @@ function ViewContact({ setSearchContact, searchContact }) {
                   </article>
                 </div>
                 <div className='flex space-x-3 mt-5 w-72 items-center'>
-                  <figure>
+                  <figure className='ml-5'>
                     <img src={iconDash.emailGray} alt='' />
                   </figure>
                   <article>

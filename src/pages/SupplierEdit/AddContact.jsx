@@ -105,7 +105,7 @@ function AddContact({ setPlusContact, plusContact }) {
           {/* INPUT NAME */}
           <div>
             <label className={`label-required ${errors.name && 'span-alert'}`}>
-              Nombre completo de contacto
+              Nombre completo
             </label>
             <input
               autoComplete='off'

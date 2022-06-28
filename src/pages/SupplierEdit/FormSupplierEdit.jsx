@@ -144,7 +144,7 @@ function FormSupplierEdit() {
   return (
     <>
       <section>
-        <div className='flex h-20 w-full items-center p-8'>
+        <div className='flex w-full items-center p-8'>
           <div className='w-full flex items-center justify-end'>
             <button
               type='button'
@@ -156,9 +156,7 @@ function FormSupplierEdit() {
           </div>
         </div>
         <section className='w-full flex justify-center'>
-          <form
-            onSubmit={handleSubmit(saveSupplier)}
-            className='mt-5 p-3 w-3/5'>
+          <form onSubmit={handleSubmit(saveSupplier)} className='w-full p-10'>
             <fieldset disabled={disabledEdit}>
               {/* INPUT SUPPLIER */}
               <section>
@@ -362,7 +360,7 @@ function FormSupplierEdit() {
                     className={`label-required ${
                       errors.supplier_social_reason && 'span-alert'
                     }`}>
-                    Razon social del proveedor
+                    Razon social
                   </label>
                   <div>
                     <input
