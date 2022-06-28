@@ -35,7 +35,7 @@ function RequestJoin() {
           <button
             type='submit'
             disabled={!isValid}
-            className='bg-primary disabled:bg-whiteGreen text-secondary w-80  p-3 rounded-lg  text-lg cursor-pointer'>
+            className='bg-primary disabled:bg-whiteGreen text-secondary w-52  p-3 rounded-lg  text-lg cursor-pointer xl:w-80'>
             Finalizar
           </button>
         </div>
@@ -47,7 +47,7 @@ function RequestJoin() {
             disabled={!isValid}
             onClick={pageNext}
             type='button'
-            className='bg-primary disabled:bg-whiteGreen text-secondary w-80  p-3 rounded-lg  text-lg cursor-pointer'>
+            className='bg-primary disabled:bg-whiteGreen text-secondary w-52  p-3 rounded-lg  text-lg cursor-pointer xl:w-80'>
             Siguiente
           </button>
         </div>
@@ -98,16 +98,15 @@ function RequestJoin() {
   return (
     <>
       <nav className='w-full h-20 border-b-2 border-gray'>
-        <div onClick={returnLogin} className='nav-container cursor-pointer'>
+        <div className='nav-container'>
           <img className='w-12' src={logo.logo} alt='logo hubmine' />
-          <h1 className='title-hub'>
+          <h1 onClick={returnLogin} className='title-hub cursor-pointer'>
             Hub<span className='span-mine'>mine</span>
           </h1>
         </div>
       </nav>
-
-      <section className='w-full h-96 flex'>
-        <article className='p-20 w-full'>
+      <section className='w-full flex'>
+        <article className='p-10 w-4/5 xl:w-full xl:p-20'>
           <section className='flex space-x-4'>
             {page > 0 && (
               <div>
@@ -483,7 +482,7 @@ function RequestJoin() {
                 </div>
               </section>
             )}
-            <div className='mt-14 w-full flex items-center space-x-96'>
+            <div className='mt-10 w-full flex items-center space-x-44 xl:space-x-96'>
               {renderButton()}
               <p className='text-primary font-semibold text-xl'>
                 {page + 1} / 5
@@ -493,12 +492,12 @@ function RequestJoin() {
           </form>
         </article>
         <article
-          className='w-full flex relative transform -translate-y-20 justify-center items-center'
+          className='w-full flex relative justify-center items-center'
           style={{
             backgroundImage: `url(${imagePlant})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
-            height: 775,
+            height: 580,
             width: 600,
           }}>
           <div className='w-20 flex flex-col items-center'>

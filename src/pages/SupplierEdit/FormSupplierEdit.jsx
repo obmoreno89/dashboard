@@ -147,6 +147,7 @@ function FormSupplierEdit() {
         <div className='flex h-20 w-full items-center p-8'>
           <div className='w-full flex items-center justify-end'>
             <button
+              type='button'
               onClick={() => {
                 setDisabledEdit(!disabledEdit);
               }}>
@@ -154,8 +155,10 @@ function FormSupplierEdit() {
             </button>
           </div>
         </div>
-        <section className='w-full flex justify-center h-screen'>
-          <form className='mt-5 p-3 w-3/5'>
+        <section className='w-full flex justify-center'>
+          <form
+            onSubmit={handleSubmit(saveSupplier)}
+            className='mt-5 p-3 w-3/5'>
             <fieldset disabled={disabledEdit}>
               {/* INPUT SUPPLIER */}
               <section>
@@ -716,21 +719,22 @@ function FormSupplierEdit() {
                     )}
                   </div>
                 </section>
+                {!disabledEdit && (
+                  <div
+                    type='submit'
+                    className='w-full flex flex-row space-x-3 items-center justify-center h-40'>
+                    <button className='button-secondary bg-primary'>
+                      Guardar
+                    </button>
+                    <button
+                      type='button'
+                      onClick={buttonCancel}
+                      className='button-secondary bg-danger'>
+                      Cancelar
+                    </button>
+                  </div>
+                )}
               </section>
-              {!disabledEdit && (
-                <div className='w-full flex flex-row space-x-3 items-center justify-center h-40'>
-                  <button
-                    onClick={handleSubmit(saveSupplier)}
-                    className='button-secondary bg-primary'>
-                    Guardar
-                  </button>
-                  <button
-                    onClick={buttonCancel}
-                    className='button-secondary bg-danger'>
-                    Cancelar
-                  </button>
-                </div>
-              )}
             </fieldset>
           </form>
         </section>

@@ -133,13 +133,16 @@ function Login() {
             {errors.password && (
               <span className='span-alert'>{errors.password.message}</span>
             )}
-            <a onClick={toggleEye} className='absolute right-0 top-0 mt-3 mr-4'>
+            <button
+              type='button'
+              onClick={toggleEye}
+              className='absolute right-0 top-0 mt-3 mr-4'>
               {eye ? (
                 <img src={iconLogin.eye2} alt='ojo cerrado' />
               ) : (
                 <img src={iconLogin.eye1} alt='ojo abierto' />
               )}
-            </a>
+            </button>
           </div>
           {/* <div className='ml-0'>
             <label className='flex'>

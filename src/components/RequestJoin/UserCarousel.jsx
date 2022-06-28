@@ -16,18 +16,18 @@ export default function SimpleSlider() {
   };
   return (
     <Slider className='w-96' {...settings}>
-      <section>
-        <figure className='flex justify-center items-center'>
+      <section className='flex justify-center items-center'>
+        <figure>
           <img src={logo.truck} alt='Escavadora' />
         </figure>
       </section>
-      <section>
-        <figure className='flex justify-center items-center'>
+      <section className='flex justify-center items-center'>
+        <figure>
           <img src={logo.mineAndPhone} alt='Escavadora' />
         </figure>
       </section>
-      <section>
-        <figure className='flex justify-center items-center'>
+      <section className='flex justify-center items-center'>
+        <figure>
           <img src={logo.phoneAndTruck} alt='Escavadora' />
         </figure>
       </section>
