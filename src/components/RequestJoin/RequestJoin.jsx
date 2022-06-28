@@ -35,7 +35,7 @@ function RequestJoin() {
           <button
             type='submit'
             disabled={!isValid}
-            className='bg-primary disabled:bg-whiteGreen text-secondary w-52  p-3 rounded-lg  text-lg cursor-pointer xl:w-80'>
+            className='bg-primary disabled:bg-whiteGreen text-secondary w-44  p-3 rounded-lg  text-lg cursor-pointer xl:w-72'>
             Finalizar
           </button>
         </div>
@@ -47,7 +47,7 @@ function RequestJoin() {
             disabled={!isValid}
             onClick={pageNext}
             type='button'
-            className='bg-primary disabled:bg-whiteGreen text-secondary w-52  p-3 rounded-lg  text-lg cursor-pointer xl:w-80'>
+            className='bg-primary disabled:bg-whiteGreen text-secondary w-44  p-3 rounded-lg  text-lg cursor-pointer xl:w-72'>
             Siguiente
           </button>
         </div>
@@ -105,8 +105,8 @@ function RequestJoin() {
           </h1>
         </div>
       </nav>
-      <section className='w-full flex'>
-        <article className='p-10 w-4/5 xl:w-full xl:p-20'>
+      <section className='w-full flex items-center justify-center'>
+        <article className='w-4/5 pl-20 pr-20'>
           <section className='flex space-x-4'>
             {page > 0 && (
               <div>
@@ -482,7 +482,7 @@ function RequestJoin() {
                 </div>
               </section>
             )}
-            <div className='mt-10 w-full flex items-center space-x-44 xl:space-x-96'>
+            <div className='mt-10 w-full flex items-center space-x-44 xl:space-x-72'>
               {renderButton()}
               <p className='text-primary font-semibold text-xl'>
                 {page + 1} / 5
@@ -497,7 +497,7 @@ function RequestJoin() {
             backgroundImage: `url(${imagePlant})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
-            height: 580,
+            height: '100vh',
             width: 600,
           }}>
           <div className='w-20 flex flex-col items-center'>
