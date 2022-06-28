@@ -14,7 +14,7 @@
 }
 
 .title-hub {
-  @apply w-0 font-bold text-3xl;
+  @apply font-bold text-3xl;
 }
 
 .span-mine {

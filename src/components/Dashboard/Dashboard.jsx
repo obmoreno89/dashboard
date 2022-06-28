@@ -119,13 +119,13 @@ function Dashboard() {
         <div className='flex items-center space-x-3'>
           <img className='logo' src={logo.logo} alt='logo hubmine' />
           <div>
-            <h1 className='title-hub'>
+            <h1 className='title-hub xl:w-0'>
               Hub<span className='span-mine'>mine</span>
             </h1>
             <h6 className='text-textgray font-semibold'>Supplier Management</h6>
           </div>
         </div>
-        <div className='relative flex w-1/2 flex-wrap items-stretch mt-2 mb-3'>
+        <div className='relative flex w-4/12 flex-wrap items-stretch mt-2 mb-3 xl:w-1/2'>
           <span className='span-image'>
             <img src={iconDash.search} alt='Lupa' />
           </span>
