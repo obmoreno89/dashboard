@@ -35,7 +35,7 @@ function Login() {
     Swal.fire({
       icon: 'error',
       title: 'Perfil no permitido',
-      text: 'El acceso solo es permitido para proveedores',
+      text: 'El acceso solo es permitido para administradores',
     });
   }
 
@@ -51,14 +51,15 @@ function Login() {
       .then((response) => response.json())
       .then((json) => {
         // reset();
-        if (json.customer_type_id === 2) {
+        if (json.user_type_id === 1) {
+          console.log(json);
           let result = json;
           localStorage.setItem('token', result.token);
           cookies.set('id', result.id, { path: '/' });
           cookies.set('email', result.email, { path: '/' });
           cookies.set('first_name', result.first_name, { path: '/' });
           navigate('/dashboard/dashboard');
-        } else if (json.customer_type_id === 1) {
+        } else if (json.user_type_id === 2) {
           alertRoll();
         } else {
           alertLogin();
@@ -101,7 +102,7 @@ function Login() {
                 },
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                  message: 'El formato no es correcto',
+                  message: 'Ingresa un email valido',
                 },
               })}
             />
@@ -124,10 +125,6 @@ function Login() {
                   value: true,
                   message: 'El campo es requerido',
                 },
-                minLength: {
-                  value: 6,
-                  message: 'La contraseña debe tener al menos 6 carecteres',
-                },
               })}
             />
             {errors.password && (
@@ -143,23 +140,6 @@ function Login() {
                 <img src={iconLogin.eye1} alt='ojo abierto' />
               )}
             </button>
-          </div>
-          {/* <div className='ml-0'>
-            <label className='flex'>
-              <div>
-                <input type='checkbox' className='relative -top-0.5' />
-              </div>
-              <div className='ml-2 text-sm text-textblack cursor-pointer'>
-                Permanecer conectado
-              </div>
-            </label>
-          </div> */}
-          <div className='w-full flex justify-center mt-5'>
-            <NavLink
-              className='text-sm text-primary cursor-pointer'
-              to='/recovery-password'>
-              ¿Has olvidado la contraseña?
-            </NavLink>
           </div>
           <div className='w-full flex justify-center  mt-5'>
             <button type='submit' className='button-primary'>

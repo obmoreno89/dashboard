@@ -35,7 +35,9 @@ function NewSupplier() {
   return (
     <>
       <nav className='nav flex items-center justify-between p-6'>
-        <div className='flex items-center space-x-3' onClick={exit}>
+        <div
+          className='flex items-center space-x-3 cursor-pointer'
+          onClick={exit}>
           <img className='logo' src={logo.logo} alt='logo hubmine' />
           <div>
             <h1 className='title-hub'>

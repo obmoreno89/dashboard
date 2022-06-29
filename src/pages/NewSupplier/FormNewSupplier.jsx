@@ -47,7 +47,7 @@ function FormNewSupplier() {
     }).then((result) => {
       if (result.value) {
         newSupp(data);
-        reset();
+        navigate('/dashboard/dashboard');
       }
     });
   }
@@ -175,7 +175,7 @@ function FormNewSupplier() {
                 className={`label-required ${
                   errors.supplier_phone && 'span-alert'
                 }`}>
-                Telefono
+                Telefono (incluir codigo del país)
               </label>
               <div>
                 <input
@@ -272,7 +272,6 @@ function FormNewSupplier() {
                   }`}
                   {...register('supplier_fax', {
                     required: {
-                      value: true,
                       message: 'El campo es requerido',
                       maxLength: 13,
                     },
@@ -329,7 +328,7 @@ function FormNewSupplier() {
                 className={`label-required ${
                   errors.supplier_social_reason && 'span-alert'
                 }`}>
-                Razon social del proveedor
+                Razon social
               </label>
               <div>
                 <input
@@ -394,12 +393,12 @@ function FormNewSupplier() {
           </section>
           {/* INPUT CONTACT PHONE */}
           <section className='flex space-x-6 justify-between items-center'>
-            <div className='mt-3 w-2/5'>
+            <div className='mt-3 w-2/3'>
               <label
                 className={`label-required ${
                   errors.contact_phone && 'span-alert'
                 }`}>
-                Telefono
+                Telefono (incluir codigo del país)
               </label>
               <div>
                 <input
@@ -425,7 +424,7 @@ function FormNewSupplier() {
               </div>
             </div>
             {/* INPUT CONTACT EMAIL */}
-            <div className='mt-3 w-3/5'>
+            <div className='mt-3 w-2/3'>
               <label
                 className={`label-required ${
                   errors.contact_email && 'span-alert'
@@ -459,7 +458,7 @@ function FormNewSupplier() {
               </div>
             </div>
             {/* INPUT CONTACT POSITION */}
-            <div className='mt-3 w-3/5'>
+            <div className='mt-3 w-5/12'>
               <label
                 className={`label-required ${
                   errors.contact_position && 'span-alert'
@@ -493,7 +492,6 @@ function FormNewSupplier() {
               </div>
             </div>
           </section>
-
           {/* INPUT COUNTRY */}
           <section className='flex space-x-6 justify-between items-center'>
             <div className='mt-3 w-3/5'>
@@ -649,7 +647,7 @@ function FormNewSupplier() {
           <section className='flex space-x-6 justify-between items-center'>
             <div className='mt-3 w-3/5'>
               <label
-                className={`label-required ${
+                className={`label-primary ${
                   errors.exterior_num && 'span-alert'
                 }`}>
                 Numero exterior
@@ -663,7 +661,6 @@ function FormNewSupplier() {
                   }`}
                   {...register('exterior_num', {
                     required: {
-                      value: true,
                       message: 'El campo es requerido',
                       maxLength: 15,
                     },
@@ -679,7 +676,7 @@ function FormNewSupplier() {
             {/* INPUT INTERIOR NUM */}
             <div className='mt-3 w-3/5'>
               <label
-                className={`label-required ${
+                className={`label-primary ${
                   errors.interior_num && 'span-alert'
                 }`}>
                 Numero interior
@@ -693,7 +690,6 @@ function FormNewSupplier() {
                   }`}
                   {...register('interior_num', {
                     required: {
-                      value: true,
                       message: 'El campo es requerido',
                       maxLength: 15,
                     },
@@ -736,41 +732,11 @@ function FormNewSupplier() {
                 )}
               </div>
             </div>
-            {/* INPUT LOCALITY */}
-            <div className='mt-3 w-3/5'>
-              <label
-                className={`label-required ${errors.locality && 'span-alert'}`}>
-                Localidad
-              </label>
-              <div>
-                <input
-                  autoComplete='off'
-                  type='text'
-                  className={`capitalize py-1 pl-3 w-full rounded-lg text-lg text-textblack border border-gray outline-none focus:outline-none focus:border-primary  ${
-                    errors.locality && 'input-danger'
-                  }`}
-                  {...register('locality', {
-                    required: {
-                      value: true,
-                      message: 'El campo es requerido',
-                      maxLength: 15,
-                    },
-                    pattern: {
-                      value: /[a-zA-Z]/,
-                      message: 'El formato no es correcto',
-                    },
-                  })}
-                />
-                {errors.locality && (
-                  <span className='span-alert'>{errors.locality.message}</span>
-                )}
-              </div>
-            </div>
           </section>
           {/* INPUT OBSERVATIONS */}
           <section className='mt-3'>
             <label
-              className={`label-required ${
+              className={`label-primary ${
                 errors.observations && 'span-alert'
               }`}>
               Observaciones
@@ -784,7 +750,6 @@ function FormNewSupplier() {
                 }`}
                 {...register('observations', {
                   required: {
-                    value: true,
                     message: 'El campo es requerido',
                     maxLength: 50,
                   },
@@ -800,7 +765,7 @@ function FormNewSupplier() {
             <section className='flex justify-between items-center'>
               <div className='mt-3'>
                 <label
-                  className={`label-required ${
+                  className={`label-primary ${
                     errors.longitude && 'span-alert'
                   }`}>
                   Longitud
@@ -814,7 +779,6 @@ function FormNewSupplier() {
                     }`}
                     {...register('longitude', {
                       required: {
-                        value: true,
                         message: 'El campo es requerido',
                         maxLength: 10,
                       },
@@ -830,7 +794,7 @@ function FormNewSupplier() {
               {/* INPUT LATITUDE */}
               <div className='mt-3'>
                 <label
-                  className={`label-required ${
+                  className={`label-primary ${
                     errors.latitude && 'span-alert'
                   }`}>
                   Latitud
@@ -844,7 +808,6 @@ function FormNewSupplier() {
                     }`}
                     {...register('latitude', {
                       required: {
-                        value: true,
                         message: 'El campo es requerido',
                       },
                     })}
