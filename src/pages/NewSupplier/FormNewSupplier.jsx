@@ -14,6 +14,7 @@ function FormNewSupplier() {
 
   const cookies = new Cookies();
   const supplierId = cookies.get('id');
+  // const submit = (data) => console.log(data);
 
   const navigate = useNavigate();
   const {
@@ -81,7 +82,7 @@ function FormNewSupplier() {
       body: JSON.stringify(data),
     }).then((response) => {
       // reset();
-      if (response.msg !== 'Ok') {
+      if (response.status === 200) {
         Swal.fire({
           icon: 'success',
           title: 'Operación exitosa',
@@ -778,6 +779,7 @@ function FormNewSupplier() {
                       errors.longitude && 'input-danger'
                     }`}
                     {...register('longitude', {
+                      valueAsNumber: true,
                       required: {
                         message: 'El campo es requerido',
                         maxLength: 10,
@@ -807,6 +809,7 @@ function FormNewSupplier() {
                       errors.latitude && 'input-danger'
                     }`}
                     {...register('latitude', {
+                      valueAsNumber: true,
                       required: {
                         message: 'El campo es requerido',
                       },

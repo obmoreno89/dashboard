@@ -14,7 +14,6 @@ function FormSupplierEdit() {
   const [stateId, setStateId] = useState('');
   const [city, setCity] = useState([]);
   const navigate = useNavigate();
-  console.log(suppData);
 
   const submit = (data) => console.log(data);
   const { id } = useParams();
@@ -91,6 +90,9 @@ function FormSupplierEdit() {
           setValue('supplier_fax', json[0].supplier_fax);
           setValue('supplier_rfc', json[0].supplier_rfc);
           setValue('supplier_social_reason', json[0].supplier_social_reason);
+          setValue('country_id', json[0].location.country_id);
+          setValue('state_id', json[0].location.state_id);
+          setValue('city_id', json[0].location.city_id);
         });
     };
     getSuppId();
@@ -309,7 +311,6 @@ function FormSupplierEdit() {
                         }`}
                         {...register('supplier_fax', {
                           required: {
-                            value: true,
                             message: 'El campo es requerido',
                             maxLength: 13,
                           },
@@ -416,14 +417,14 @@ function FormSupplierEdit() {
                           },
                         })}
                         onChange={(e) => handleCountry(e)}>
-                        {suppData.map((countryList) => (
+                        {/* {suppData.map((countryList) => (
                           <option
+                            
                             key={countryList.location.country_id}
                             value={countryList.location.country_id}>
                             {countryList.location.country}
                           </option>
-                        ))}
-
+                        ))} */}
                         {country.map((countryList) => (
                           <option key={countryList.id} value={countryList.id}>
                             {countryList.country}
@@ -457,13 +458,13 @@ function FormSupplierEdit() {
                           },
                         })}
                         onChange={(e) => handleState(e)}>
-                        {suppData.map((stateList) => (
+                        {/* {suppData.map((stateList) => (
                           <option
                             key={stateList.location.country_id}
                             value={stateList.location.state_id}>
                             {stateList.location.state}
                           </option>
-                        ))}
+                        ))} */}
                         {st.map((stateList) => (
                           <option key={stateList.id} value={stateList.id}>
                             {stateList.state}
@@ -496,13 +497,13 @@ function FormSupplierEdit() {
                             message: 'El campo es requerido',
                           },
                         })}>
-                        {suppData.map((cityList) => (
+                        {/* {suppData.map((cityList) => (
                           <option
                             key={cityList.location.country_id}
                             value={cityList.location.city_id}>
                             {cityList.location.city}
                           </option>
-                        ))}
+                        ))} */}
                         {city.map((cityList) => (
                           <option key={cityList.id} value={cityList.id}>
                             {cityList.city}
