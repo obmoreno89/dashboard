@@ -175,11 +175,11 @@ function Dashboard() {
             </thead>
             <tbody>
               {!list.length ? (
-                <div className='div-center'>
-                  <h1 className='text-textgray font-bold text-4xl'>
+                <tr className='div-center'>
+                  <td className='text-textgray font-bold text-4xl'>
                     sin proveedores
-                  </h1>
-                </div>
+                  </td>
+                </tr>
               ) : (
                 list.map((listSupp) => (
                   <tr

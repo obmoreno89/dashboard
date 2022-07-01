@@ -52,7 +52,6 @@ function Login() {
       .then((json) => {
         // reset();
         if (json.user_type_id === 1) {
-          console.log(json);
           let result = json;
           localStorage.setItem('token', result.token);
           cookies.set('id', result.id, { path: '/' });

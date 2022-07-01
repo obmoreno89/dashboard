@@ -13,6 +13,7 @@ function ViewContact({ setSearchContact, searchContact }) {
   const [searchCont, setSearchCont] = useState('');
   const [contactId, setContactId] = useState([]);
   const [editUp, setEditUp] = useState(false);
+
   const navigate = useNavigate();
 
   const { id } = useParams();
@@ -116,7 +117,7 @@ function ViewContact({ setSearchContact, searchContact }) {
       {!searchContact && (
         <nav className='flex items-center border-b-2 border-gray h-16'>
           <div className='ml-3 flex'>
-            <button onClick={handleSearch}>
+            <button type='button' onClick={handleSearch}>
               <img src={iconDash.arrowLeft} alt='flecha izquierda' />
             </button>
           </div>
@@ -181,6 +182,7 @@ function ViewContact({ setSearchContact, searchContact }) {
                 <img src={iconDash.pencil} alt='lapiz' />
               </button>
               <button
+                button='button'
                 onClick={() =>
                   ContactDelete(
                     contactId.map((id) => {

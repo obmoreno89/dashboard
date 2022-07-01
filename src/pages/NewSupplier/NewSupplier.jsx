@@ -61,7 +61,17 @@ function NewSupplier() {
       </nav>
       <main className='w-full h-auto flex'>
         <section className='w-64 h-auto border-r-2 border-gray'>
-          <LateralMenu />
+          <div className='w-full h-14 flex items-center justify-center space-x-1 border-b-2 border-gray'>
+            <div className=''>
+              <img className='w-4' src={iconDash.list} alt='lista' />
+            </div>
+            <button
+              onClick={exit}
+              type='button'
+              className='text-primary font-light cursor-pointer'>
+              Lista de proveedores
+            </button>
+          </div>
         </section>
         <section className='w-full h-auto flex justify-center items-center flex-col'>
           <FormNewSupplier />

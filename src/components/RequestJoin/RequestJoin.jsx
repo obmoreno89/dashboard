@@ -35,7 +35,7 @@ function RequestJoin() {
           <button
             type='submit'
             disabled={!isValid}
-            className='bg-primary disabled:bg-whiteGreen text-secondary w-44  p-3 rounded-lg  text-lg cursor-pointer xl:w-72'>
+            className='bg-primary disabled:bg-whiteGreen text-textwhite w-44  p-3 rounded-lg  text-lg cursor-pointer xl:w-72'>
             Finalizar
           </button>
         </div>
@@ -47,7 +47,7 @@ function RequestJoin() {
             disabled={!isValid}
             onClick={pageNext}
             type='button'
-            className='bg-primary disabled:bg-whiteGreen text-secondary w-44  p-3 rounded-lg  text-lg cursor-pointer xl:w-72'>
+            className='bg-primary disabled:bg-whiteGreen text-textwhite w-44  p-3 rounded-lg  text-lg cursor-pointer xl:w-72'>
             Siguiente
           </button>
         </div>

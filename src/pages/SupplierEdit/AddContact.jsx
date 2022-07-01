@@ -31,7 +31,7 @@ function AddContact({ setPlusContact, plusContact }) {
     }).then((result) => {
       if (result.value) {
         newContact(data);
-        reset();
+        setPlusContact(!plusContact);
       }
     });
   }
