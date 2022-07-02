@@ -2,68 +2,72 @@ import React from 'react';
 import Swal from 'sweetalert2';
 import iconDash from '../../assets/iconDash';
 
-function DeleteContact({ setDeleteContact, deleteContact }) {
-  function deleteContact() {
+function DeleteContact({
+  setSectionContact,
+  sectionContact,
+  contactId,
+  setEditUp,
+}) {
+  function ContactDelete(id) {
     Swal.fire({
       imageUrl: iconDash.warning,
       imageHeight: 100,
       imageWidth: 100,
-      text: '¿Esta seguro que desea guardar el contacto?',
-      confirmButtonText: 'Aceptar',
+      text: `¿Esta seguro que desea eliminar el proveedor?`,
+      confirmButtonText: 'Eliminar',
       confirmButtonColor: '#0DB1AC',
       cancelButtonText: 'Cancelar',
       cancelButtonColor: '#FF5859',
       showCancelButton: true,
     }).then((result) => {
       if (result.value) {
+        handleDeleteContact(id);
+        handleShow();
+      }
+    });
+  }
+
+  const handleDeleteContact = (id) => {
+    const requestInit = {
+      method: 'DELETE',
+    };
+
+    fetch(
+      `https://dev.hubmine.mx/api/suppliers/contact/delete/${id}/`,
+      requestInit
+    ).then((response) => {
+      if (response.status !== 404) {
         Swal.fire(
           'Operación exitosa!',
-          'Se eliminó correctamente el contacto',
+          'Se elimino correctamente el contacto',
           'success'
         );
-
-        // navigate('/dash');
+      } else {
+        Swal.fire(
+          'No se puede eliminar',
+          'Al parecer tenemos problemas con nuestro servidor',
+          'error'
+        );
       }
+      setEditUp(true);
     });
-  }
+  };
 
-  function buttonQuestion() {
-    Swal.fire({
-      imageUrl: iconDash.warning,
-      imageHeight: 100,
-      imageWidth: 100,
-      text: '¿Esta seguro que desea cancelar el registro?',
-      confirmButtonText: 'Aceptar',
-      confirmButtonColor: '#0DB1AC',
-      cancelButtonText: 'Cancelar',
-      cancelButtonColor: '#FF5859',
-      showCancelButton: true,
-    }).then((result) => {
-      if (result.value) {
-        return setDeleteContact(!deleteContact);
-      }
-    });
-  }
+  const handleShow = () => setSectionContact(!sectionContact);
 
   return (
     <>
-      <section className='w-full flex justify-between border-b-2 border-gray h-16 '>
-        <div className='text-textgray1 font-medium ml-4 flex items-center'>
-          <h4>Eliminar Contacto</h4>
-        </div>
-        <div className='flex space-x-3 mr-8 items-center'>
-          <button
-            onClick={deleteContact}
-            className='rounded-md w-6 h-6 bg-primary flex items-center justify-center'>
-            <img src={iconDash.checkButton} alt='check' />
-          </button>
-          <button
-            onClick={buttonQuestion}
-            className='rounded-md w-6 h-6 bg-danger flex items-center justify-center'>
-            <img src={iconDash.cancelButton} alt='X' />
-          </button>
-        </div>
-      </section>
+      <button
+        button='button'
+        onClick={() =>
+          ContactDelete(
+            contactId.map((id) => {
+              return id.id;
+            })
+          )
+        }>
+        <img className='w-4' src={iconDash.trashCanGrey} alt='bote de basura' />
+      </button>
     </>
   );
 }

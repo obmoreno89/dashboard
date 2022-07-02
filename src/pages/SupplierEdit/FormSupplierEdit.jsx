@@ -424,7 +424,6 @@ function FormSupplierEdit() {
                       onChange={(e) => handleCountry(e)}>
                       {suppData.map((countryList) => (
                         <option
-                          disabled
                           key={countryList.location.country_id}
                           value={countryList.location.country_id}>
                           {countryList.location.country}
@@ -466,7 +465,6 @@ function FormSupplierEdit() {
                       onChange={(e) => handleState(e)}>
                       {suppData.map((stateList) => (
                         <option
-                          disabled
                           key={stateList.location.country_id}
                           value={stateList.location.state_id}>
                           {stateList.location.state}
@@ -507,7 +505,6 @@ function FormSupplierEdit() {
                       })}>
                       {suppData.map((cityList) => (
                         <option
-                          disabled
                           key={cityList.location.country_id}
                           value={cityList.location.city_id}>
                           {cityList.location.city}

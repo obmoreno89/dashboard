@@ -17,6 +17,8 @@ function AddContact({ setPlusContact, plusContact }) {
     formState: { errors },
   } = useForm({ mode: 'all' });
 
+  const handleContact = () => setPlusContact(!plusContact);
+
   function saveContact(data) {
     Swal.fire({
       imageUrl: iconDash.warning,
@@ -31,7 +33,7 @@ function AddContact({ setPlusContact, plusContact }) {
     }).then((result) => {
       if (result.value) {
         newContact(data);
-        setPlusContact(!plusContact);
+        handleContact();
       }
     });
   }
@@ -49,7 +51,7 @@ function AddContact({ setPlusContact, plusContact }) {
       showCancelButton: true,
     }).then((result) => {
       if (result.value) {
-        return setPlusContact(!plusContact);
+        handleContact();
       }
     });
   }
