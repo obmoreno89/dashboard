@@ -24,7 +24,7 @@ function AppRoutes() {
       {/* Public Routes */}
       <Routes>
         <Route
-          path='/dashboard'
+          path='/login'
           element={
             <PublicRoute>
               <Login />
