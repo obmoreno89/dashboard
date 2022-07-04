@@ -20,7 +20,7 @@ import ThanksPage from '../pages/ThanksPage/ThanksPage';
 
 function AppRoutes() {
   return (
-    <BrowserRouter basename='/dashboard/supplier'>
+    <BrowserRouter basename='/dashboard'>
       {/* Public Routes */}
       <Routes>
         <Route
