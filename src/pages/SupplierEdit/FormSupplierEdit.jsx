@@ -709,22 +709,22 @@ function FormSupplierEdit() {
                     )}
                   </div>
                 </section>
-                {!disabledEdit && (
-                  <div
-                    type='submit'
-                    className='w-full flex flex-row space-x-3 items-center justify-center h-40'>
-                    <button className='button-secondary bg-primary'>
-                      Guardar
-                    </button>
-                    <button
-                      type='button'
-                      onClick={buttonCancel}
-                      className='button-secondary bg-danger'>
-                      Cancelar
-                    </button>
-                  </div>
-                )}
               </section>
+              {!disabledEdit && (
+                <div
+                  type='submit'
+                  className='w-full flex flex-row space-x-3 items-center justify-center h-40'>
+                  <button className='button-secondary bg-primary'>
+                    Guardar
+                  </button>
+                  <button
+                    type='button'
+                    onClick={buttonCancel}
+                    className='button-secondary bg-danger'>
+                    Cancelar
+                  </button>
+                </div>
+              )}
             </fieldset>
           </form>
         </section>
