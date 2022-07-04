@@ -1,6 +1,12 @@
 import React from 'react';
 import Login from '../components/Login/Login';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  HashRouter,
+  Router,
+} from 'react-router-dom';
 import RecoverPassword from '../components/RecoverPassword/RecoverPassword';
 import Dashboard from '../components/Dashboard/Dashboard';
 // Pages
