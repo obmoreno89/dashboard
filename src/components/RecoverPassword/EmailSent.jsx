@@ -6,7 +6,7 @@ function EmailSent() {
   const navigate = useNavigate();
 
   function handleReturn() {
-    navigate('/dashboard');
+    navigate('/login');
   }
 
   return (

@@ -49,7 +49,7 @@ function Dashboard() {
     cookies.remove('email', { path: '/' });
     cookies.remove('first_name', { path: '/' });
 
-    navigate('/dashboard');
+    navigate('/login');
   }
 
   function supplierDelete(id) {

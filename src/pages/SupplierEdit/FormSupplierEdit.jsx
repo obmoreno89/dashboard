@@ -50,7 +50,7 @@ function FormSupplierEdit() {
     }).then((result) => {
       if (result.value) {
         supplierUpdate(data);
-        navigate('/dashboard/dashboard');
+        navigate('/list/supplier');
       }
     });
   }
@@ -70,7 +70,7 @@ function FormSupplierEdit() {
       showCancelButton: true,
     }).then((result) => {
       if (result.value) {
-        navigate('/dashboard/dashboard');
+        navigate('/list/supplier');
       }
     });
   }

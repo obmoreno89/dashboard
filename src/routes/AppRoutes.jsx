@@ -61,7 +61,7 @@ function AppRoutes() {
 
         {/* Private Routes */}
         <Route
-          path='/dashboard/dashboard'
+          path='/list/supplier'
           element={
             <PrivateRoutes>
               <Dashboard />

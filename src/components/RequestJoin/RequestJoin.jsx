@@ -70,7 +70,7 @@ function RequestJoin() {
       showCancelButton: true,
     }).then((result) => {
       if (result.value) {
-        navigate('/dashboard');
+        navigate('/login');
       }
     });
   }

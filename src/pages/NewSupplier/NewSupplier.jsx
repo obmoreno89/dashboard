@@ -27,7 +27,7 @@ function NewSupplier() {
       showCancelButton: true,
     }).then((result) => {
       if (result.value) {
-        navigate('/dashboard/dashboard');
+        navigate('/list/supplier');
       }
     });
   }

@@ -57,7 +57,7 @@ function Login() {
           cookies.set('id', result.id, { path: '/' });
           cookies.set('email', result.email, { path: '/' });
           cookies.set('first_name', result.first_name, { path: '/' });
-          navigate('/dashboard/dashboard');
+          navigate('/list/supplier');
         } else if (json.user_type_id === 2) {
           alertRoll();
         } else {

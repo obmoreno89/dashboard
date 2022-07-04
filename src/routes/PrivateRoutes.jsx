@@ -5,7 +5,7 @@ function PrivateRoutes({ children }) {
   const token = localStorage.getItem('token');
 
   if (!token) {
-    return <Navigate to='/dashboard' />;
+    return <Navigate to='/login' />;
   }
   return children;
 }

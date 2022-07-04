@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function ThanksPage() {
   const navigate = useNavigate();
   const returnHome = () => {
-    navigate('/dashboard');
+    navigate('/login');
   };
   return (
     <section

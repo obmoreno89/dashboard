@@ -48,7 +48,7 @@ function FormNewSupplier() {
     }).then((result) => {
       if (result.value) {
         newSupp(data);
-        navigate('/dashboard/dashboard');
+        navigate('/list/supplier');
       }
     });
   }
@@ -68,7 +68,7 @@ function FormNewSupplier() {
       showCancelButton: true,
     }).then((result) => {
       if (result.value) {
-        navigate('/dashboard/dashboard');
+        navigate('/list/supplier');
       }
     });
   }
