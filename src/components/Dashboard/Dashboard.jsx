@@ -14,8 +14,6 @@ function Dashboard() {
   const [search, setSearch] = useState('');
   const cookies = new Cookies();
 
-  console.log(listTable);
-
   const userName = cookies.get('first_name');
 
   const handleSearch = (event) => {
@@ -102,17 +100,15 @@ function Dashboard() {
     const getSpupplierList = () => {
       fetch('https://dev.hubmine.mx/api/suppliers/list/')
         .then((response) => response.json())
-        .then(
-          (json) => {
-            if (json !== 404) {
-              setList(json);
-              setListTable(json);
-            } else {
-              Swal.fire('Algo salío mal', `${json.msg}`, 'error');
-            }
-          },
-          [listTable]
-        );
+        .then((json) => {
+          if (json !== 404) {
+            console.log(json);
+            setList(json);
+            setListTable(json);
+          } else {
+            Swal.fire('Algo salío mal', `${json.msg}`, 'error');
+          }
+        });
     };
     getSpupplierList();
     setSupplierUp(false);
