@@ -100,14 +100,17 @@ function Dashboard() {
     const getSpupplierList = () => {
       fetch('https://dev.hubmine.mx/api/suppliers/list/')
         .then((response) => response.json())
-        .then((json) => {
-          if (json !== 404) {
-            setList(json);
-            setListTable(json);
-          } else {
-            Swal.fire('Algo salío mal', `${json.msg}`, 'error');
-          }
-        });
+        .then(
+          (json) => {
+            if (json !== 404) {
+              setList(json);
+              setListTable(json);
+            } else {
+              Swal.fire('Algo salío mal', `${json.msg}`, 'error');
+            }
+          },
+          [list, listTable]
+        );
     };
     getSpupplierList();
     setSupplierUp(false);
