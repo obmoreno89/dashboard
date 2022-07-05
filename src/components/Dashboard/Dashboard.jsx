@@ -111,8 +111,9 @@ function Dashboard() {
         });
     };
     getSpupplierList();
+    setSupplierUp(true);
     setSupplierUp(false);
-  }, [supplierUp]);
+  }, [supplierUp, listTable]);
 
   return (
     <>
