@@ -14,6 +14,8 @@ function Dashboard() {
   const [search, setSearch] = useState('');
   const cookies = new Cookies();
 
+  console.log(listTable);
+
   const userName = cookies.get('first_name');
 
   const handleSearch = (event) => {
@@ -109,7 +111,7 @@ function Dashboard() {
               Swal.fire('Algo salío mal', `${json.msg}`, 'error');
             }
           },
-          [list, listTable]
+          [listTable]
         );
     };
     getSpupplierList();
